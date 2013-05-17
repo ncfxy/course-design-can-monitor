@@ -5,15 +5,18 @@ package com.tju.CanCommunication.Communication;
 
 public class Command 
 {
-   private String _flag;
-   private java.lang.String[] _dataString;
-   private java.lang.Integer[] _dataInt;
+   private char _cmdChar;
+   private String _sourceData;
+   private String _transformedData;
+   private char _endChar;
+   private String _sourceString;
+   private String _finalString;
    
    /**
-    * @param _newCmd
+    * @param sourceString
     * @roseuid 51947F830272
     */
-   public Command(String _newCmd) 
+   public Command(String sourceString) 
    {
     
    }
@@ -24,5 +27,67 @@ public class Command
    public Command() 
    {
     
+   }
+   
+   /**
+    * @roseuid 519650F202FC
+    */
+   public void transformData() 
+   {
+    
+   }
+   
+   /**
+    * @return java.lang.String
+    * @roseuid 5196510F00AD
+    */
+   public String getSourceData() 
+   {
+    return null;
+   }
+   
+   /**
+    * @return char
+    * @roseuid 51965125039D
+    */
+   public char getCmdChar() 
+   {
+    return 0;
+   }
+   
+   /**
+    * @return java.lang.String
+    * @roseuid 5196513700F4
+    */
+   public String getSourceString() 
+   {
+    return null;
+   }
+   
+   /**
+    * @return java.lang.String
+    * @roseuid 5196514B0014
+    */
+   public String getFinalString() 
+   {
+    return null;
+   }
+   
+   /**
+    * @return java.lang.String
+    * @roseuid 519651610058
+    */
+   public String getTransformedData() 
+   {
+    return null;
+   }
+   
+   /**
+    * @return char
+    * @roseuid 519651700284
+    */
+   public char getEndChar() 
+   {
+    return 0;
    }
 }

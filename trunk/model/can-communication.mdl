@@ -2844,26 +2844,117 @@
 								value      	""))
 							quid       	"51947F830272"
 							parameters 	(list Parameters
-							    (object Parameter "_newCmd"
+							    (object Parameter "sourceString"
 								quid       	"51947F900395"
 								type       	"String"
 								quidu      	"3E400BED00EF"))
 							concurrency 	"Sequential"
 							opExportControl 	"Public"
+							uid        	0)
+						    (object Operation "transformData"
+							attributes 	(list Attribute_Set
+							    (object Attribute
+								tool       	"Java"
+								name       	"GenerateFullyQualifiedThrows"
+								value      	""))
+							quid       	"519650F202FC"
+							result     	"void"
+							concurrency 	"Sequential"
+							opExportControl 	"Public"
+							uid        	0)
+						    (object Operation "getSourceData"
+							attributes 	(list Attribute_Set
+							    (object Attribute
+								tool       	"Java"
+								name       	"GenerateFullyQualifiedThrows"
+								value      	""))
+							quid       	"5196510F00AD"
+							result     	"String"
+							concurrency 	"Sequential"
+							opExportControl 	"Public"
+							uid        	0
+							quidu      	"3E400BED00EF")
+						    (object Operation "getCmdChar"
+							attributes 	(list Attribute_Set
+							    (object Attribute
+								tool       	"Java"
+								name       	"GenerateFullyQualifiedThrows"
+								value      	""))
+							quid       	"51965125039D"
+							result     	"char"
+							concurrency 	"Sequential"
+							opExportControl 	"Public"
+							uid        	0)
+						    (object Operation "getSourceString"
+							attributes 	(list Attribute_Set
+							    (object Attribute
+								tool       	"Java"
+								name       	"GenerateFullyQualifiedThrows"
+								value      	""))
+							quid       	"5196513700F4"
+							result     	"String"
+							concurrency 	"Sequential"
+							opExportControl 	"Public"
+							uid        	0
+							quidu      	"3E400BED00EF")
+						    (object Operation "getFinalString"
+							attributes 	(list Attribute_Set
+							    (object Attribute
+								tool       	"Java"
+								name       	"GenerateFullyQualifiedThrows"
+								value      	""))
+							quid       	"5196514B0014"
+							result     	"String"
+							concurrency 	"Sequential"
+							opExportControl 	"Public"
+							uid        	0
+							quidu      	"3E400BED00EF")
+						    (object Operation "getTransformedData"
+							attributes 	(list Attribute_Set
+							    (object Attribute
+								tool       	"Java"
+								name       	"GenerateFullyQualifiedThrows"
+								value      	""))
+							quid       	"519651610058"
+							result     	"String"
+							concurrency 	"Sequential"
+							opExportControl 	"Public"
+							uid        	0
+							quidu      	"3E400BED00EF")
+						    (object Operation "getEndChar"
+							attributes 	(list Attribute_Set
+							    (object Attribute
+								tool       	"Java"
+								name       	"GenerateFullyQualifiedThrows"
+								value      	""))
+							quid       	"519651700284"
+							result     	"char"
+							concurrency 	"Sequential"
+							opExportControl 	"Public"
 							uid        	0))
 						class_attributes 	(list class_attribute_list
-						    (object ClassAttribute "_flag"
-							quid       	"51947DF50342"
+						    (object ClassAttribute "_cmdChar"
+							quid       	"519651B80064"
+							type       	"char")
+						    (object ClassAttribute "_sourceData"
+							quid       	"519651C40348"
 							type       	"String"
 							quidu      	"3E400BED00EF")
-						    (object ClassAttribute "_dataString"
-							quid       	"51947E550299"
-							type       	"String[]"
+						    (object ClassAttribute "_transformedData"
+							quid       	"519651D2019D"
+							type       	"String"
 							quidu      	"3E400BED00EF")
-						    (object ClassAttribute "_dataInt"
-							quid       	"51947E7B0172"
-							type       	"Integer[]"
-							quidu      	"3E400C0C02A2"))
+						    (object ClassAttribute "_endChar"
+							quid       	"519651DF01BC"
+							type       	"char")
+						    (object ClassAttribute "_sourceString"
+							quid       	"519651EC00FC"
+							type       	"String"
+							quidu      	"3E400BED00EF")
+						    (object ClassAttribute "_finalString"
+							quid       	"519651F700CD"
+							type       	"String"
+							quidu      	"3E400BED00EF"))
 						module     	"Component View::com::tju::CanCommunication::Communication::Command"
 						quidu      	"519477530161"
 						language   	"Java")
@@ -3067,13 +3158,62 @@
 								value      	""))
 							quid       	"51947FB20284"
 							parameters 	(list Parameters
-							    (object Parameter "_ansStr"
+							    (object Parameter "ansStr"
 								quid       	"51947FC9000F"
 								type       	"String"
 								quidu      	"3E400BED00EF"))
 							concurrency 	"Sequential"
 							opExportControl 	"Public"
-							uid        	0))
+							uid        	0)
+						    (object Operation "getAnsString"
+							attributes 	(list Attribute_Set
+							    (object Attribute
+								tool       	"Java"
+								name       	"GenerateFullyQualifiedThrows"
+								value      	""))
+							quid       	"51965377012E"
+							result     	"String"
+							concurrency 	"Sequential"
+							opExportControl 	"Public"
+							uid        	0
+							quidu      	"3E400BED00EF")
+						    (object Operation "getDataString"
+							attributes 	(list Attribute_Set
+							    (object Attribute
+								tool       	"Java"
+								name       	"GenerateFullyQualifiedThrows"
+								value      	""))
+							quid       	"51965394002D"
+							result     	"String"
+							concurrency 	"Sequential"
+							opExportControl 	"Public"
+							uid        	0
+							quidu      	"3E400BED00EF")
+						    (object Operation "getCmdString"
+							attributes 	(list Attribute_Set
+							    (object Attribute
+								tool       	"Java"
+								name       	"GenerateFullyQualifiedThrows"
+								value      	""))
+							quid       	"519653A10284"
+							result     	"String"
+							concurrency 	"Sequential"
+							opExportControl 	"Public"
+							uid        	0
+							quidu      	"3E400BED00EF"))
+						class_attributes 	(list class_attribute_list
+						    (object ClassAttribute "_ansString"
+							quid       	"5196532002FE"
+							type       	"String"
+							quidu      	"3E400BED00EF")
+						    (object ClassAttribute "_dataString"
+							quid       	"51965327037D"
+							type       	"String"
+							quidu      	"3E400BED00EF")
+						    (object ClassAttribute "_cmdString"
+							quid       	"519653400124"
+							type       	"String"
+							quidu      	"3E400BED00EF"))
 						module     	"Component View::com::tju::CanCommunication::Communication::ReceiveAnswer"
 						quidu      	"51947F390054"
 						language   	"Java"))
@@ -3084,14 +3224,14 @@
 						zoom       	100
 						max_height 	28350
 						max_width  	21600
-						origin_x   	0
+						origin_x   	1919
 						origin_y   	0
 						items      	(list diagram_item_list
 						    (object ClassView "Class" "Logical View::com::tju::CanCommunication::Communication::Command" @106
 							ShowCompartmentStereotypes 	TRUE
 							IncludeAttribute 	TRUE
 							IncludeOperation 	TRUE
-							location   	(1136, 192)
+							location   	(1136, 448)
 							font       	(object Font
 							    size       	10
 							    face       	"Arial"
@@ -3103,10 +3243,10 @@
 							    default_color 	TRUE)
 							label      	(object ItemLabel
 							    Parent_View 	@106
-							    location   	(919, 11)
+							    location   	(877, 17)
 							    fill_color 	13434879
 							    nlines     	1
-							    max_width  	434
+							    max_width  	518
 							    justify    	0
 							    label      	"Command")
 							icon_style 	"Icon"
@@ -3115,7 +3255,7 @@
 							quidu      	"519475FF02D4"
 							compartment 	(object Compartment
 							    Parent_View 	@106
-							    location   	(919, 72)
+							    location   	(877, 78)
 							    font       	(object Font
 								size       	10
 								face       	"Arial"
@@ -3128,11 +3268,11 @@
 							    icon_style 	"Icon"
 							    fill_color 	13434879
 							    anchor     	2
-							    nlines     	6
-							    max_width  	434
+							    nlines     	16
+							    max_width  	516
 							    justify    	1)
-							width      	452
-							height     	386
+							width      	536
+							height     	886
 							annotation 	8
 							autoResize 	TRUE)
 						    (object ClassView "Class" "Logical View::com::tju::CanCommunication::Communication::CmdCommunication" @107
@@ -3162,6 +3302,23 @@
 							line_color 	3342489
 							fill_color 	13434879
 							quidu      	"5194761D00FF"
+							compartment 	(object Compartment
+							    Parent_View 	@107
+							    location   	(1392, 885)
+							    font       	(object Font
+								size       	10
+								face       	"Arial"
+								bold       	FALSE
+								italics    	FALSE
+								underline  	FALSE
+								strike     	FALSE
+								color      	0
+								default_color 	TRUE)
+							    icon_style 	"Icon"
+							    anchor     	2
+							    nlines     	2
+							    max_width  	347
+							    justify    	0)
 							width      	58
 							height     	58
 							annotation 	8
@@ -3192,6 +3349,24 @@
 							line_color 	3342489
 							fill_color 	13434879
 							quidu      	"5194769902C8"
+							compartment 	(object Compartment
+							    Parent_View 	@108
+							    location   	(700, 1126)
+							    font       	(object Font
+								size       	10
+								face       	"Arial"
+								bold       	FALSE
+								italics    	FALSE
+								underline  	FALSE
+								strike     	FALSE
+								color      	0
+								default_color 	TRUE)
+							    icon_style 	"Icon"
+							    fill_color 	16777215
+							    anchor     	2
+							    nlines     	8
+							    max_width  	453
+							    justify    	1)
 							width      	474
 							height     	486
 							annotation 	8
@@ -3204,7 +3379,7 @@
 							supplier   	@107
 							vertices   	(list Points
 							    (1165, 1088)
-							    (1480, 813))
+							    (1387, 894))
 							line_style 	0)
 						    (object ClassView "Class" "Logical View::com::tju::CanCommunication::Communication::ReceiveAnswer" @110
 							ShowCompartmentStereotypes 	TRUE
@@ -3222,10 +3397,10 @@
 							    default_color 	TRUE)
 							label      	(object ItemLabel
 							    Parent_View 	@110
-							    location   	(1967, 214)
+							    location   	(1944, 64)
 							    fill_color 	13434879
 							    nlines     	1
-							    max_width  	354
+							    max_width  	400
 							    justify    	0
 							    label      	"ReceiveAnswer")
 							icon_style 	"Icon"
@@ -3234,7 +3409,7 @@
 							quidu      	"51947A130287"
 							compartment 	(object Compartment
 							    Parent_View 	@110
-							    location   	(1967, 275)
+							    location   	(1944, 125)
 							    font       	(object Font
 								size       	10
 								face       	"Arial"
@@ -3247,11 +3422,11 @@
 							    icon_style 	"Icon"
 							    fill_color 	13434879
 							    anchor     	2
-							    nlines     	3
-							    max_width  	359
+							    nlines     	9
+							    max_width  	397
 							    justify    	1)
-							width      	372
-							height     	236
+							width      	418
+							height     	536
 							annotation 	8
 							autoResize 	TRUE)
 						    (object UsesView "" @111
@@ -3261,8 +3436,8 @@
 							client     	@107
 							supplier   	@106
 							vertices   	(list Points
-							    (1545, 708)
-							    (1289, 385))
+							    (1539, 715)
+							    (1404, 626))
 							line_style 	0)
 						    (object UsesView "" @112
 							stereotype 	TRUE
@@ -3272,7 +3447,7 @@
 							supplier   	@110
 							vertices   	(list Points
 							    (1594, 713)
-							    (1979, 438))
+							    (1934, 470))
 							line_style 	0))))))
 				logical_presentations 	(list unit_reference_list
 				    (object ClassDiagram "Main"
@@ -3958,7 +4133,7 @@
 		    (object Attribute
 			tool       	"Java"
 			name       	"ClassPath"
-			value      	";C:\\Program Files (x86)\\Java\\jdk1.7.0_06\\jre\\lib\\rt.jar;C:\\Program Files (x86)\\Java\\jdk1.7.0_06\\lib\\dt.jar;C:\\Program Files (x86)\\Java\\jdk1.7.0_06\\lib\\tools.jar")
+			value      	"C:\\Program Files (x86)\\Java\\jdk1.7.0_06\\jre\\lib\\rt.jar;C:\\Program Files (x86)\\Java\\jdk1.7.0_06\\lib\\dt.jar;C:\\Program Files (x86)\\Java\\jdk1.7.0_06\\lib\\tools.jar;C:\\Users\\Administrator\\Desktop")
 		    (object Attribute
 			tool       	"Java"
 			name       	"ReferenceClasspath"

@@ -3162,6 +3162,23 @@
 							line_color 	3342489
 							fill_color 	13434879
 							quidu      	"5194761D00FF"
+							compartment 	(object Compartment
+							    Parent_View 	@107
+							    location   	(1388, 885)
+							    font       	(object Font
+								size       	10
+								face       	"Arial"
+								bold       	FALSE
+								italics    	FALSE
+								underline  	FALSE
+								strike     	FALSE
+								color      	0
+								default_color 	TRUE)
+							    icon_style 	"Icon"
+							    anchor     	2
+							    nlines     	2
+							    max_width  	347
+							    justify    	0)
 							width      	58
 							height     	58
 							annotation 	8
@@ -3192,6 +3209,24 @@
 							line_color 	3342489
 							fill_color 	13434879
 							quidu      	"5194769902C8"
+							compartment 	(object Compartment
+							    Parent_View 	@108
+							    location   	(700, 1126)
+							    font       	(object Font
+								size       	10
+								face       	"Arial"
+								bold       	FALSE
+								italics    	FALSE
+								underline  	FALSE
+								strike     	FALSE
+								color      	0
+								default_color 	TRUE)
+							    icon_style 	"Icon"
+							    fill_color 	13434879
+							    anchor     	2
+							    nlines     	8
+							    max_width  	459
+							    justify    	1)
 							width      	474
 							height     	486
 							annotation 	8
@@ -3958,7 +3993,7 @@
 		    (object Attribute
 			tool       	"Java"
 			name       	"ClassPath"
-			value      	";C:\\Program Files (x86)\\Java\\jdk1.7.0_06\\jre\\lib\\rt.jar;C:\\Program Files (x86)\\Java\\jdk1.7.0_06\\lib\\dt.jar;C:\\Program Files (x86)\\Java\\jdk1.7.0_06\\lib\\tools.jar")
+			value      	"C:\\Users\\Administrator\\Desktop;C:\\Program Files\\Java\\jdk1.6.0_29\\jre\\lib\\rt.jar;C:\\Program Files\\Java\\jdk1.6.0_29\\lib\\dt.jar;C:\\Program Files\\Java\\jdk1.6.0_29\\lib\\tools.jar;C:\\Program Files\\Java\\jdk1.7.0_06\\jre\\lib\\rt.jar;C:\\Program Files\\Java\\jdk1.7.0_06\\lib\\dt.jar;C:\\Program Files\\Java\\jdk1.7.0_06\\lib\\tools.jar")
 		    (object Attribute
 			tool       	"Java"
 			name       	"ReferenceClasspath"

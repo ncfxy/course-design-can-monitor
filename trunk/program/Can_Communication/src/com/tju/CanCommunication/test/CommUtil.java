@@ -21,6 +21,7 @@ public class CommUtil implements SerialPortEventListener {
 	OutputStream outputStream;// 向串口输出的流
 	SerialPort serialPort; // 串口的引用
 	CommPortIdentifier portId;
+	byte[] readBuffer;
 
 	public CommUtil(Enumeration portList, String name) {
 		while (portList.hasMoreElements()) {
@@ -67,17 +68,17 @@ public class CommUtil implements SerialPortEventListener {
 			break;
 		
 		case SerialPortEvent.DATA_AVAILABLE:// 当有可用数据时读取数据,并且给串口返回数据
-			byte[] readBuffer = new byte[20];
+			readBuffer = new byte[20];
 
 			try {
 				while (inputStream.available() > 0) {
-					System.out.println(inputStream.available());
+					//System.out.println(inputStream.available());
 					int numBytes = inputStream.read(readBuffer);
-					System.out.println(numBytes);
+					//System.out.println(numBytes);
 				}
-				String newStr = new String(readBuffer);
-				char ch = newStr.charAt(0);
-				System.out.println((int)ch);
+				//String newStr = new String(readBuffer);
+				//char ch = newStr.charAt(0);
+				//System.out.println((int)ch);
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
@@ -99,6 +100,10 @@ public class CommUtil implements SerialPortEventListener {
 	      serialPort.close();
 	    }
 	  }
+	
+	public String getAnsString(){
+		return new String(readBuffer);
+	}
 
 	
 }

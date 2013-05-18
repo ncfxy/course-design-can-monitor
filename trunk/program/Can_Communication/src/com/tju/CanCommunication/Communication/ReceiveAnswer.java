@@ -8,13 +8,16 @@ public class ReceiveAnswer
    private String _ansString;
    private String _dataString;
    private String _cmdString;
+   private String _stateString;
    
    /**
     * @param ansStr
     * @roseuid 51947FB20284
     */
-   public ReceiveAnswer(String ansStr) 
+   public ReceiveAnswer(String ansStr)
    {
+	   _ansString = ansStr;
+	   
     
    }
    
@@ -32,7 +35,7 @@ public class ReceiveAnswer
     */
    public String getAnsString() 
    {
-    return null;
+    return _ansString;
    }
    
    /**
@@ -41,7 +44,7 @@ public class ReceiveAnswer
     */
    public String getDataString() 
    {
-    return null;
+    return _dataString;
    }
    
    /**
@@ -50,6 +53,6 @@ public class ReceiveAnswer
     */
    public String getCmdString() 
    {
-    return null;
+    return _cmdString;
    }
 }

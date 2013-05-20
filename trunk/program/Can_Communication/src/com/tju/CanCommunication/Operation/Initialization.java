@@ -29,13 +29,14 @@ public class Initialization implements Operation {
 	/**
 	 * @roseuid 519346500095
 	 */
-	public void openCanBus() {
+	public void openCanBus(String value) {
 		if (CanInformation._open == false) {
-			Command newCmd = new Command("O0");
+			Command newCmd = new Command("O"+value);
 			Rs232Command rs232 = new Rs232Command(newCmd,
 					CanInformation._portName);
 			ReceiveAnswer ans = rs232.sendCommand();
 			CanInformation._open = true;
+			CanInformation._openMode = value;
 		}
 	}
 

@@ -14,19 +14,19 @@
 
 <AnchorPane id="background" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1366.0" xmlns:fx="http://javafx.com/fxml">
   <children>
-    <MenuBar id="head" layoutX="0.0" layoutY="0.0">
+    <MenuBar id="head" layoutX="0.0" layoutY="0.0" minHeight="22.0" prefHeight="22.0" prefWidth="1365.0">
       <menus>
-        <Menu mnemonicParsing="false" text="文件">
+        <Menu id="mainMenuDocument" mnemonicParsing="false" text="文件">
           <items>
             <MenuItem mnemonicParsing="false" text="关闭" />
           </items>
         </Menu>
-        <Menu mnemonicParsing="false" text="编辑">
+        <Menu id="mainMenuEdit" mnemonicParsing="false" text="编辑">
           <items>
             <MenuItem mnemonicParsing="false" text="删除" />
           </items>
         </Menu>
-        <Menu mnemonicParsing="false" text="帮助">
+        <Menu id="mainMenuHelp" mnemonicParsing="false" text="帮助">
           <items>
             <MenuItem mnemonicParsing="false" text="关于" />
           </items>
@@ -37,20 +37,20 @@
       <children>
         <Label layoutX="7.0" layoutY="14.0" text="SelectCom" />
         <Label layoutX="132.0" layoutY="14.0" prefWidth="62.0" text="Baud Rate" />
-        <MenuButton layoutX="7.0" layoutY="42.0" mnemonicParsing="false" prefWidth="62.0" text="MenuButton">
+        <MenuButton id="mainSelectComMenuButton" layoutX="7.0" layoutY="42.0" mnemonicParsing="false" prefWidth="62.0" text="MenuButton">
           <items>
             <MenuItem mnemonicParsing="false" text="操作 1" />
             <MenuItem mnemonicParsing="false" text="操作 2" />
           </items>
         </MenuButton>
-        <MenuButton layoutX="127.0" layoutY="42.0" mnemonicParsing="false" prefWidth="62.0" text="MenuButton">
+        <MenuButton id="mainBaudRateMenuButton" layoutX="127.0" layoutY="42.0" mnemonicParsing="false" prefWidth="62.0" text="MenuButton">
           <items>
             <MenuItem mnemonicParsing="false" text="操作 1" />
             <MenuItem mnemonicParsing="false" text="操作 2" />
           </items>
         </MenuButton>
-        <Button id="ClosePort" layoutX="7.0" layoutY="94.0" mnemonicParsing="false" text="ClosePort" />
-        <Button id="set" layoutX="126.0" layoutY="94.0" mnemonicParsing="false" prefWidth="62.0" text="Set" />
+        <Button id="mainClosePort" layoutX="7.0" layoutY="94.0" mnemonicParsing="false" text="ClosePort" />
+        <Button id="mainSet" layoutX="126.0" layoutY="94.0" mnemonicParsing="false" prefWidth="62.0" text="Set" />
         <Label layoutX="7.0" layoutY="-8.0" prefWidth="132.0" text="Com Port Parameter" />
         <Line endX="1256.0" endY="2.0" layoutX="108.0" layoutY="-7.0" startX="-107.0" startY="0.0" />
       </children>
@@ -66,12 +66,12 @@
         <Label layoutX="17.0" layoutY="57.0" prefWidth="187.0" text="Message Send On/Off Mode:" />
         <Label layoutX="17.0" layoutY="80.0" prefWidth="187.0" text="Setup bit rate:" />
         <Label layoutX="17.0" layoutY="101.0" prefWidth="187.0" text="Set TimeStamp On/Off:" />
-        <Button layoutX="229.0" layoutY="8.0" mnemonicParsing="false" prefWidth="103.0" text="Reset Mode" />
-        <Button layoutX="229.0" layoutY="31.0" mnemonicParsing="false" prefWidth="103.0" text="Normal Mode" />
-        <Button layoutX="345.0" layoutY="31.0" mnemonicParsing="false" prefWidth="73.0" text="Self Test" />
-        <Button layoutX="229.0" layoutY="54.0" mnemonicParsing="false" text="Bloke On" />
-        <Button layoutX="308.0" layoutY="55.0" mnemonicParsing="false" text="Bloke Off" />
-        <ChoiceBox layoutX="229.0" layoutY="77.0" prefWidth="73.0">
+        <Button id="mainResetMode" layoutX="229.0" layoutY="8.0" mnemonicParsing="false" prefWidth="103.0" text="Reset Mode" />
+        <Button id="mainNormalMode" layoutX="229.0" layoutY="31.0" mnemonicParsing="false" prefWidth="103.0" text="Normal Mode" />
+        <Button id="mainSelfTest" layoutX="345.0" layoutY="31.0" mnemonicParsing="false" prefWidth="73.0" text="Self Test" />
+        <Button id="mainBlokeOn" layoutX="229.0" layoutY="54.0" mnemonicParsing="false" text="Bloke On" />
+        <Button id="mainBlokeOff" layoutX="308.0" layoutY="55.0" mnemonicParsing="false" text="Bloke Off" />
+        <ChoiceBox id="mainSetupBitRate" layoutX="229.0" layoutY="77.0" prefWidth="73.0">
           <items>
             <FXCollections fx:factory="observableArrayList">
               <String fx:value="项 1" />
@@ -80,39 +80,34 @@
             </FXCollections>
           </items>
         </ChoiceBox>
-        <Button layoutX="390.0" layoutY="54.0" mnemonicParsing="false" text="Listen Only" />
-        <Button layoutX="345.0" layoutY="77.0" mnemonicParsing="false" prefWidth="72.9998779296875" text="Button" />
-        <Button layoutX="229.0" layoutY="99.0" mnemonicParsing="false" text="Timestamp On" />
-        <Button layoutX="368.0" layoutY="99.0" mnemonicParsing="false" text="Timestamp Off" />
+        <Button id="mainListenOnly" layoutX="390.0" layoutY="54.0" mnemonicParsing="false" text="Listen Only" />
+        <Button id="mainSetupBitRateOk" layoutX="345.0" layoutY="77.0" mnemonicParsing="false" prefWidth="72.9998779296875" text="OK" />
+        <Button id="mainTimestampOn" layoutX="229.0" layoutY="99.0" mnemonicParsing="false" text="Timestamp On" />
+        <Button id="mainTimestampOff" layoutX="368.0" layoutY="99.0" mnemonicParsing="false" text="Timestamp Off" />
       </children>
     </AnchorPane>
-    <AnchorPane layoutX="9.0" layoutY="180.0" minHeight="340.0" prefHeight="340.0000999999975" prefWidth="1039.0">
+    <AnchorPane id="" layoutX="8.0" layoutY="178.0" minHeight="340.0" prefHeight="340.0000999999975" prefWidth="1039.0">
       <children>
-        <TreeView layoutX="3.0" layoutY="2.0" prefHeight="332.0" prefWidth="200.0" />
+        <TreeView id="mainTreeView" layoutX="3.0" layoutY="2.0" prefHeight="332.0" prefWidth="200.0" />
         <AnchorPane layoutX="206.0" layoutY="7.0" minHeight="113.0" minWidth="500.29290771484375" prefHeight="113.0" prefWidth="500.29290771484375">
           <children>
             <Label layoutX="18.0" layoutY="-3.0" prefWidth="38.0" text="Send" />
             <Label layoutX="34.0" layoutY="16.0" text="Send Data and Command:" />
-            <TextField layoutX="191.0" layoutY="14.0" prefWidth="200.0" />
-            <Button layoutX="419.0" layoutY="12.0" mnemonicParsing="false" text="Send" />
+            <TextField id="mainDataTextField" layoutX="191.0" layoutY="14.0" prefWidth="200.0" />
+            <Button id="mainDataSend" layoutX="419.0" layoutY="12.0" mnemonicParsing="false" text="Send" />
             <Label layoutX="42.0" layoutY="41.0" prefWidth="306.0" text="(All the data set and recieved should in hexadesimal)" textFill="#ff3d00" />
             <Label layoutX="34.0" layoutY="64.0" prefWidth="157.0" text="Send  Command from File:" />
             <Label layoutX="195.0" layoutY="64.0" text="file:" />
-            <TextField layoutX="219.0" layoutY="61.0" prefWidth="200.0" />
+            <TextField id="mainFileTextField" layoutX="219.0" layoutY="61.0" prefWidth="200.0" />
             <Label layoutX="34.0" layoutY="86.0" prefWidth="124.0" text="Peried(milisecond):" />
-            <TextField layoutX="148.0" layoutY="83.0" prefWidth="200.0" />
-            <Button layoutX="427.0" layoutY="60.0" mnemonicParsing="false" text="Open" />
-            <Button layoutX="368.0" layoutY="85.0" mnemonicParsing="false" text="Send" />
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="113.0" layoutX="1.0" layoutY="1.0" opacity="0.0" stroke="BLACK" strokeMiterLimit="10.0" strokeType="INSIDE" strokeWidth="1.0" width="521.0">
-              <effect>
-                <DropShadow />
-              </effect>
-            </Rectangle>
+            <TextField id="mainPeriodTextField" layoutX="148.0" layoutY="83.0" prefWidth="200.0" />
+            <Button id="mainFileOpen" layoutX="427.0" layoutY="60.0" mnemonicParsing="false" text="Open" />
+            <Button id="mainPeriedSend" layoutX="368.0" layoutY="85.0" mnemonicParsing="false" text="Send" />
             <Line endX="-96.0" endY="733.0" layoutX="111.0" layoutY="-151.0" startX="-100.0" />
             <Label layoutX="516.0" layoutY="-137.0" text="Commands" />
             <Text layoutX="516.0" layoutY="-98.0" scaleX="1.0" scaleY="1.0498526207868768" strokeType="OUTSIDE" strokeWidth="0.0" text="Get Version from Device:" />
             <Text layoutX="516.0" layoutY="-65.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Get Serial from Device:" />
-            <Text layoutX="516.0" layoutY="-31.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Setup BTR0/BTR1 Register:" />
+            <Text layoutX="518.0" layoutY="-38.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Setup BTR0/BTR1 Register:" />
             <Text layoutX="516.0" layoutY="2.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Setup ACRn Register:" />
             <Text layoutX="517.0" layoutY="75.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Setup AMRn Register:" />
             <Text layoutX="517.0" layoutY="125.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Write Regiter" />
@@ -125,27 +120,26 @@
               </fill>
             </Text>
             <Text layoutX="517.0" layoutY="254.0" scaleX="0.9956352886881559" scaleY="1.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Read error flags SB,ALC,ECR，RIERR，TXERR Registers" />
-            <Text layoutX="731.0" layoutY="32.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ACR2" />
+            <Text layoutX="733.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ACR2" />
             <Text layoutX="729.0" layoutY="74.0" strokeType="OUTSIDE" strokeWidth="0.0" text="AMR0" />
             <Text layoutX="727.0" layoutY="102.0" strokeType="OUTSIDE" strokeWidth="0.0" text="AMR2" />
-            <TextField layoutX="618.0" layoutY="144.0" prefWidth="49.0" />
-            <Button layoutX="691.0" layoutY="144.0" mnemonicParsing="false" text="OK" />
+            <TextField id="mainReadRegisterTextField" layoutX="618.0" layoutY="144.0" prefWidth="49.0" />
+            <Button id="mainReadRegisterOK" layoutX="691.0" layoutY="144.0" mnemonicParsing="false" text="OK" />
             <Text layoutX="795.0" layoutY="158.0" scaleX="1.0" scaleY="0.9999919902601564" strokeType="OUTSIDE" strokeWidth="0.0" text="Register Data is" />
-            <Button layoutX="849.0" layoutY="190.0" mnemonicParsing="false" text="OK" />
-            <Button layoutX="849.0" layoutY="239.0" mnemonicParsing="false" text="OK" />
+            <Button id="mainFlushOK" layoutX="849.0" layoutY="190.0" mnemonicParsing="false" text="OK" />
+            <Button id="mainReadErrorOK" layoutX="849.0" layoutY="239.0" mnemonicParsing="false" text="OK" />
             <Text layoutX="635.0" layoutY="275.0" strokeType="OUTSIDE" strokeWidth="0.0" text="SB" />
             <Text layoutX="706.0" layoutY="275.0" scaleX="1.0" scaleY="0.9999919902601564" strokeType="OUTSIDE" strokeWidth="0.0" text="ALC" />
             <Text layoutX="518.0" layoutY="275.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ERR-Flags" />
             <Text layoutX="783.0" layoutY="275.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ECR" />
             <Text layoutX="518.0" layoutY="299.0" strokeType="OUTSIDE" strokeWidth="0.0" text="RIERR" />
             <Text layoutX="635.0" layoutY="299.0" strokeType="OUTSIDE" strokeWidth="0.0" text="TXERRR" />
-            <TextField layoutX="580.0" layoutY="260.0" prefWidth="44.71875" />
-            <TextField layoutX="659.0" layoutY="260.0" prefWidth="44.71875" />
-            <TextField layoutX="731.0" layoutY="260.0" prefWidth="38.0" />
-            <TextField layoutX="559.0" layoutY="283.0" prefWidth="44.71875" />
-            <TextField layoutX="691.0" layoutY="283.0" prefWidth="52.0" />
+            <TextField id="ERRTextField" layoutX="580.0" layoutY="260.0" prefWidth="44.71875" />
+            <TextField id="SBTextField" layoutX="659.0" layoutY="260.0" prefWidth="44.71875" />
+            <TextField id="ALCTextField" layoutX="731.0" layoutY="260.0" prefWidth="38.0" />
+            <TextField id="RIERRTextField" layoutX="559.0" layoutY="283.0" prefWidth="44.71875" />
+            <TextField id="TXERRRTextField" layoutX="691.0" layoutY="283.0" prefWidth="52.0" />
             <Text fill="$x1" layoutX="517.0" layoutY="317.0" scaleX="1.0073730183764364" scaleY="0.9999919902601564" strokeType="OUTSIDE" strokeWidth="0.0" text="(All the Data set and  recieved should in hexacidecimal)" />
-            <ScrollBar layoutX="-12.0" layoutY="-3.0" orientation="VERTICAL" prefHeight="332.0" />
             <Accordion expandedPane="$null" layoutX="34.0" layoutY="355.0" />
             <TableView layoutX="13.0" layoutY="336.0" prefHeight="245.0" prefWidth="1132.5">
               <columns>
@@ -162,46 +156,47 @@
             </TableView>
           </children>
         </AnchorPane>
-        <ImageView fitHeight="219.0" fitWidth="292.0" layoutX="301.0" layoutY="113.0" pickOnBounds="true" preserveRatio="true" />
+        <ImageView id="mainImage" fitHeight="219.0" fitWidth="292.0" layoutX="301.0" layoutY="114.0" pickOnBounds="true" preserveRatio="true" />
         <Line endX="614.0" endY="-3.0" layoutX="92.0" layoutY="-3.0" startX="-100.0" />
         <Line endX="1264.0" endY="-5.0" layoutX="92.0" layoutY="343.0" startX="-100.0" />
         <Line endX="-102.0" endY="386.0" layoutX="807.0" layoutY="-49.0" startX="-99.0" startY="-99.0" />
         <Line endX="-103.0" endY="437.0" layoutX="1455.0" layoutY="-100.0" startX="-103.0" startY="-50.0" />
-        <Button layoutX="915.0" layoutY="-112.0" mnemonicParsing="false" prefWidth="92.0" text="Get Version" />
-        <TextField layoutX="1024.0" layoutY="-112.0" prefWidth="200.0" />
-        <Button layoutX="918.0" layoutY="-73.0" mnemonicParsing="false" prefWidth="84.0" text="Read Serial" />
-        <TextField layoutX="1024.0" layoutY="-78.0" prefWidth="200.0" />
+        <Button id="mainGetVersion" layoutX="915.0" layoutY="-112.0" mnemonicParsing="false" prefWidth="92.0" text="Get Version" />
+        <TextField id="mainGetVersionTextField" layoutX="1024.0" layoutY="-112.0" prefWidth="200.0" />
+        <Button id="mainReadSerial" layoutX="918.0" layoutY="-73.0" mnemonicParsing="false" prefWidth="84.0" text="Read Serial" />
+        <TextField id="mainReadSerialTextField" layoutX="1024.0" layoutY="-78.0" prefWidth="200.0" />
         <Text layoutX="936.0" layoutY="-28.0" strokeType="OUTSIDE" strokeWidth="0.0" text="BTR0" />
-        <TextField layoutX="981.0" layoutY="-44.0" prefWidth="52.0" />
+        <TextField id="mainBTR0TextField" layoutX="981.0" layoutY="-44.0" prefWidth="52.0" />
         <Text layoutX="1064.0" layoutY="-28.0" strokeType="OUTSIDE" strokeWidth="0.0" text="BTR1" />
-        <TextField layoutX="1107.0" layoutY="-44.0" prefWidth="52.0" />
-        <Text layoutX="935.0" layoutY="10.0" scaleX="0.9428645505009939" scaleY="1.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ACR0" />
-        <TextField layoutX="981.0" layoutY="-3.0" prefWidth="49.0" />
+        <TextField id="mainBTR1TextField" layoutX="1107.0" layoutY="-44.0" prefWidth="52.0" />
+        <Text layoutX="940.0" layoutY="6.0" scaleX="0.9428645505009939" scaleY="1.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ACR0" />
+        <TextField id="mainACR0TextField" layoutX="984.0" layoutY="-11.0" prefWidth="49.0" />
         <Text layoutX="1064.0" layoutY="8.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ACR1" />
-        <TextField layoutX="1107.0" layoutY="-10.0" prefWidth="52.0" />
-        <TextField layoutX="983.0" layoutY="19.0" prefWidth="49.0" />
+        <TextField id="mainACR1TextField" layoutX="1107.0" layoutY="-10.0" prefWidth="52.0" />
+        <TextField id="mainACR2TextField" layoutX="983.0" layoutY="20.0" prefWidth="49.0" />
         <Text layoutX="1063.0" layoutY="35.0" scaleX="1.0" scaleY="0.9999934384212859" strokeType="OUTSIDE" strokeWidth="0.0" text="ACR3" />
-        <TextField layoutX="1109.0" layoutY="19.0" prefWidth="49.0" />
-        <TextField layoutX="979.0" layoutY="63.0" prefWidth="49.0" />
+        <TextField id="mainACR3TextField" layoutX="1109.0" layoutY="19.0" prefWidth="49.0" />
+        <TextField id="mainAMR0TextField" layoutX="979.0" layoutY="63.0" prefWidth="49.0" />
         <Text layoutX="1061.0" layoutY="77.0" strokeType="OUTSIDE" strokeWidth="0.0" text="AMR1" />
-        <TextField layoutX="1108.0" layoutY="63.0" prefWidth="52.0" />
-        <TextField layoutX="978.0" layoutY="89.0" prefWidth="49.0" />
+        <TextField id="mainAMR1TextField" layoutX="1108.0" layoutY="63.0" prefWidth="52.0" />
+        <TextField id="mainAMR2TextField" layoutX="978.0" layoutY="89.0" prefWidth="49.0" />
         <Text layoutX="1063.0" layoutY="104.0" strokeType="OUTSIDE" strokeWidth="0.0" text="AMR3" />
-        <TextField layoutX="1107.0" layoutY="92.0" prefWidth="52.0" />
-        <TextField layoutX="818.0" layoutY="114.0" prefWidth="52.0" />
+        <TextField id="mainAMR3TextField" layoutX="1107.0" layoutY="92.0" prefWidth="52.0" />
+        <TextField id="mainWriteRegisterTextField" layoutX="818.0" layoutY="114.0" prefWidth="52.0" />
         <Text layoutX="903.0" layoutY="130.0" scaleX="1.1281941927000037" scaleY="1.0" strokeType="OUTSIDE" strokeWidth="0.0" text="with Data" />
-        <TextField layoutX="976.0" layoutY="118.0" prefWidth="52.0" />
-        <Button layoutX="1180.0" layoutY="-45.0" mnemonicParsing="false" text="OK" />
-        <Button layoutX="1180.0" layoutY="20.0" mnemonicParsing="false" text="OK" />
-        <Button layoutX="1176.0" layoutY="92.0" mnemonicParsing="false" text="OK" />
-        <Button layoutX="1176.0" layoutY="124.0" mnemonicParsing="false" text="OK" />
-        <TextField layoutX="1103.0" layoutY="149.0" prefWidth="110.0" />
-        <TextField layoutX="1020.0" layoutY="266.0" prefWidth="52.0" />
+        <TextField id="mainWithDataTextField" layoutX="979.0" layoutY="113.0" prefWidth="52.0" />
+        <Button id="mainBTROK" layoutX="1180.0" layoutY="-45.0" mnemonicParsing="false" text="OK" />
+        <Button id="mainACROK" layoutX="1180.0" layoutY="20.0" mnemonicParsing="false" text="OK" />
+        <Button id="mainAMROK" layoutX="1176.0" layoutY="92.0" mnemonicParsing="false" text="OK" />
+        <Button id="mainWriteRegisterOK" layoutX="1176.0" layoutY="117.0" mnemonicParsing="false" text="OK" />
+        <TextField id="mainRegisterDataTextField" layoutX="1103.0" layoutY="149.0" prefWidth="110.0" />
+        <TextField id="ECRTextField" layoutX="1020.0" layoutY="266.0" prefWidth="52.0" />
         <Text layoutX="3.0" layoutY="364.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Information" />
         <TextArea layoutX="0.0" layoutY="374.0" prefWidth="200.0" wrapText="true" />
-        <Button layoutX="12.0" layoutY="551.0" mnemonicParsing="false" text="Stepdriver" />
-        <Button layoutX="135.0" layoutY="551.0" mnemonicParsing="false" text="Clear" />
+        <Button id="mainStepdriver" layoutX="12.0" layoutY="551.0" mnemonicParsing="false" text="Stepdriver" />
+        <Button id="mainClear" layoutX="135.0" layoutY="551.0" mnemonicParsing="false" text="Clear" />
         <ScrollBar layoutX="185.0" layoutY="374.0" orientation="VERTICAL" prefHeight="163.0" />
+        <ScrollBar layoutX="188.0" layoutY="5.0" orientation="VERTICAL" prefHeight="332.0" />
       </children>
     </AnchorPane>
   </children>

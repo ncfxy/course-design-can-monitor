@@ -12,7 +12,7 @@
 <?import javafx.scene.shape.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane id="background" fx:id="mainWindow" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1366.0" xmlns:fx="http://javafx.com/fxml" fx:controller="com.tju.CanMonitor.Windows.MainWindoww">
+<AnchorPane id="background" fx:id="mainWindow" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1366.0" xmlns:fx="http://javafx.com/fxml" fx:controller="com.tju.CanMonitor.Windows.MainWindow">
   <children>
     <MenuBar id="head" layoutX="0.0" layoutY="0.0" minHeight="22.0" prefHeight="22.0" prefWidth="1365.0">
       <menus>
@@ -33,7 +33,7 @@
         </Menu>
       </menus>
     </MenuBar>
-    <AnchorPane id="Com Port Parameter" blendMode="SRC_OVER" layoutX="1.0" layoutY="35.0" prefHeight="143.0" prefWidth="199.0">
+    <AnchorPane id="Com Port Parameter" blendMode="SRC_OVER" layoutX="1.0" layoutY="35.0" minWidth="223.29290771484375" prefHeight="143.0" prefWidth="223.29290771484375">
       <children>
         <Label layoutX="7.0" layoutY="14.0" text="SelectCom" />
         <Label layoutX="132.0" layoutY="14.0" prefWidth="62.0" text="Baud Rate" />
@@ -88,24 +88,24 @@
     </AnchorPane>
     <AnchorPane id="" layoutX="8.0" layoutY="178.0" minHeight="340.0" prefHeight="340.0000999999975" prefWidth="1039.0">
       <children>
-        <TreeView id="mainTreeView" layoutX="3.0" layoutY="2.0" prefHeight="332.0" prefWidth="200.0" />
-        <AnchorPane layoutX="206.0" layoutY="7.0" minHeight="113.0" minWidth="500.29290771484375" prefHeight="113.0" prefWidth="500.29290771484375">
+        <TreeView id="mainTreeView" focusTraversable="true" layoutX="3.0" layoutY="3.0" prefHeight="332.0" prefWidth="200.0" showRoot="true" visible="true" />
+        <AnchorPane layoutX="206.0" layoutY="6.0" minHeight="113.0" minWidth="500.29290771484375" prefHeight="113.0" prefWidth="500.29290771484375">
           <children>
-            <Label layoutX="18.0" layoutY="-3.0" prefWidth="38.0" text="Send" />
-            <Label layoutX="34.0" layoutY="16.0" text="Send Data and Command:" />
-            <TextField id="mainDataTextField" layoutX="191.0" layoutY="14.0" prefWidth="200.0" />
-            <Button id="mainDataSend" layoutX="419.0" layoutY="12.0" mnemonicParsing="false" text="Send" />
-            <Label layoutX="42.0" layoutY="41.0" prefWidth="306.0" text="(All the data set and recieved should in hexadesimal)" textFill="#ff3d00" />
-            <Label layoutX="34.0" layoutY="64.0" prefWidth="157.0" text="Send  Command from File:" />
-            <Label layoutX="195.0" layoutY="64.0" text="file:" />
-            <TextField id="mainFileTextField" layoutX="219.0" layoutY="61.0" prefWidth="200.0" />
-            <Label layoutX="34.0" layoutY="86.0" prefWidth="124.0" text="Peried(milisecond):" />
+            <Label layoutX="18.0" layoutY="-4.0" prefWidth="38.0" text="Send" />
+            <Label layoutX="34.0" layoutY="15.0" text="Send Data and Command:" />
+            <TextField id="mainDataTextField" layoutX="191.0" layoutY="13.0" prefWidth="200.0" />
+            <Button id="mainDataSend" layoutX="419.0" layoutY="11.0" mnemonicParsing="false" text="Send" />
+            <Label layoutX="42.0" layoutY="40.0" prefWidth="306.0" text="(All the data set and recieved should in hexadesimal)" textFill="#ff3d00" />
+            <Label layoutX="34.0" layoutY="63.0" prefWidth="157.0" text="Send  Command from File:" />
+            <Label layoutX="195.0" layoutY="63.0" text="file:" />
+            <TextField id="mainFileTextField" layoutX="219.0" layoutY="60.0" prefWidth="200.0" />
+            <Label layoutX="516.0" layoutY="-139.0" text="Commands" />
+            <Label layoutX="34.0" layoutY="85.0" prefWidth="124.0" text="Peried(milisecond):" />
             <TextField id="mainPeriodTextField" layoutX="148.0" layoutY="83.0" prefWidth="200.0" />
-            <Button id="mainFileOpen" layoutX="427.0" layoutY="60.0" mnemonicParsing="false" text="Open" />
+            <Button id="mainFileOpen" layoutX="427.0" layoutY="59.0" mnemonicParsing="false" text="Open" />
             <Button id="mainPeriedSend" layoutX="368.0" layoutY="85.0" mnemonicParsing="false" text="Send" />
             <Line endX="-96.0" endY="733.0" layoutX="111.0" layoutY="-151.0" startX="-100.0" />
-            <Label layoutX="516.0" layoutY="-137.0" text="Commands" />
-            <Text layoutX="516.0" layoutY="-98.0" scaleX="1.0" scaleY="1.0498526207868768" strokeType="OUTSIDE" strokeWidth="0.0" text="Get Version from Device:" />
+            <Text layoutX="518.0" layoutY="-100.0" scaleX="1.0" scaleY="1.0498526207868768" strokeType="OUTSIDE" strokeWidth="0.0" text="Get Version from Device:" />
             <Text layoutX="516.0" layoutY="-65.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Get Serial from Device:" />
             <Text layoutX="518.0" layoutY="-38.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Setup BTR0/BTR1 Register:" />
             <Text layoutX="516.0" layoutY="2.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Setup ACRn Register:" />
@@ -156,7 +156,7 @@
             </TableView>
           </children>
         </AnchorPane>
-        <ImageView id="mainImage" fitHeight="219.0" fitWidth="292.0" layoutX="301.0" layoutY="114.0" pickOnBounds="true" preserveRatio="true" />
+        <ImageView id="mainImage" fitHeight="219.0" fitWidth="292.0" layoutX="302.0" layoutY="113.0" pickOnBounds="true" preserveRatio="true" />
         <Line endX="614.0" endY="-3.0" layoutX="92.0" layoutY="-3.0" startX="-100.0" />
         <Line endX="1264.0" endY="-5.0" layoutX="92.0" layoutY="343.0" startX="-100.0" />
         <Line endX="-102.0" endY="386.0" layoutX="807.0" layoutY="-49.0" startX="-99.0" startY="-99.0" />

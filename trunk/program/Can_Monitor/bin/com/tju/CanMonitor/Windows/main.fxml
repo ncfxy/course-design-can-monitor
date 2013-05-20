@@ -12,7 +12,7 @@
 <?import javafx.scene.shape.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane id="background" fx:id="mainWindow" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1366.0" xmlns:fx="http://javafx.com/fxml" fx:controller="com.tju.CanMonitor.Windows.MainWindoww">
+<AnchorPane id="background" fx:id="mainWindow" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1366.0" xmlns:fx="http://javafx.com/fxml" fx:controller="com.tju.CanMonitor.Windows.MainWindow">
   <children>
     <MenuBar id="head" layoutX="0.0" layoutY="0.0" minHeight="22.0" prefHeight="22.0" prefWidth="1365.0">
       <menus>
@@ -156,7 +156,7 @@
             </TableView>
           </children>
         </AnchorPane>
-        <ImageView id="mainImage" fitHeight="219.0" fitWidth="292.0" layoutX="301.0" layoutY="114.0" pickOnBounds="true" preserveRatio="true" />
+        <ImageView id="mainImage" fitHeight="219.0" fitWidth="292.0" layoutX="301.0" layoutY="115.0" pickOnBounds="true" preserveRatio="true" />
         <Line endX="614.0" endY="-3.0" layoutX="92.0" layoutY="-3.0" startX="-100.0" />
         <Line endX="1264.0" endY="-5.0" layoutX="92.0" layoutY="343.0" startX="-100.0" />
         <Line endX="-102.0" endY="386.0" layoutX="807.0" layoutY="-49.0" startX="-99.0" startY="-99.0" />

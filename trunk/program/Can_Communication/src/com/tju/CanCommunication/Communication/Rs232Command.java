@@ -6,12 +6,11 @@ import gnu.io.CommPortIdentifier;
 
 import java.util.Enumeration;
 
-import com.tju.CanCommunication.test.CommUtil;
-
-public class Rs232Command implements CmdCommunication {
+public class Rs232Command extends Thread implements CmdCommunication {
 	private Command _cmd;
 	private ReceiveAnswer _ans;
 	private String _portName;
+	private boolean _canSet = true;
 
 	/**
 	 * @roseuid 5194775903C8
@@ -46,6 +45,14 @@ public class Rs232Command implements CmdCommunication {
 
 	}
 
+	public void setPort(String newPort) {
+		_portName = newPort;
+	}
+
+	public String getPort() {
+		return _portName;
+	}
+
 	/**
 	 * @return com.tju.CanCommunication.Communication.ReceiveAnswer
 	 * @roseuid 51947C55038E
@@ -54,35 +61,47 @@ public class Rs232Command implements CmdCommunication {
 		return _ans;
 	}
 
-	/**
-	 * @param _sendcmd
-	 * @return com.tju.CanCommunication.Communication.ReceiveAnswer
-	 * @roseuid 51947F3A016B
-	 */
-	public synchronized ReceiveAnswer sendCommand(Command sendCmd,
-			String comPort) {
+	public ReceiveAnswer sendCommand() {
+		while (!_canSet) {
+			try {
+				Thread.sleep(1000);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		_canSet = false;
+		// Thread myThread = new Thread(sendThread);
+		Rs232Command myThread = new Rs232Command(_cmd, _portName);
+		myThread.start();
+		try {
+			myThread.join();
+			_canSet = true;
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		_ans = myThread.getAns();
+		return _ans;
+	}
+
+	public void run() {
+		startSend();
+	}
+
+	public synchronized void startSend() {
+		System.out.println(Thread.currentThread().getName());
 
 		Enumeration<CommPortIdentifier> portList = CommPortIdentifier
 				.getPortIdentifiers(); // 得到当前连接上的端口
 
-		CommUtil comm3 = new CommUtil(portList, comPort);
-		comm3.send(sendCmd.getFinalString());
+		CommUtil comm3 = new CommUtil(portList, _portName);
+		comm3.send(_cmd.getFinalString());
 		try {
 			Thread.sleep(1000);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		comm3.ClosePort();
-		return new ReceiveAnswer(comm3.getAnsString());
-	}
-
-	public ReceiveAnswer sendCommand() {
-		return sendCommand(_cmd, _portName);
+		_ans = new ReceiveAnswer(comm3.getAnsString());
 	}
 
 }
-/**
- * void Rs232Command.sendCommand(){
- * 
- * }
- */

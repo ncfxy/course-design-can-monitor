@@ -1,4 +1,4 @@
-package com.tju.CanCommunication.test;
+package com.tju.CanCommunication.Communication;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -74,11 +74,7 @@ public class CommUtil implements SerialPortEventListener {
 				while (inputStream.available() > 0) {
 					//System.out.println(inputStream.available());
 					int numBytes = inputStream.read(readBuffer);
-					//System.out.println(numBytes);
 				}
-				//String newStr = new String(readBuffer);
-				//char ch = newStr.charAt(0);
-				//System.out.println((int)ch);
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
@@ -88,8 +84,6 @@ public class CommUtil implements SerialPortEventListener {
 	public void send(String content){
 		try {
 		outputStream.write(content.getBytes());
-		//	outputStream.write(67);
-		//	outputStream.write(13);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}

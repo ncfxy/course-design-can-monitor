@@ -9,7 +9,6 @@ public interface CmdCommunication {
 	 * @return com.tju.CanCommunication.Communication.ReceiveAnswer
 	 * @roseuid 519476840366
 	 */
-	public ReceiveAnswer sendCommand(Command _sendcmd, String port);
 
 	public ReceiveAnswer sendCommand();
 }

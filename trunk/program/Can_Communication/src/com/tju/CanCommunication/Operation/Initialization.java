@@ -2,46 +2,53 @@
 
 package com.tju.CanCommunication.Operation;
 
+import com.tju.CanCommunication.Communication.Command;
+import com.tju.CanCommunication.Communication.ReceiveAnswer;
+import com.tju.CanCommunication.Communication.Rs232Command;
 
 /**
- * @author Õâ¸öÀàµÄ°üº¬µÄ²Ù×÷ÓĞ£º
- * 1.Ñ¡ÔñPC¶Ë¶Ë¿Ú²¢ÓëÓ²¼şÁ¬½Ó
- * 2.´ò¿ªCAN×ÜÏß
- * 3.¹Ø±ÕCAN×ÜÏß
+ * @author è¿™ä¸ªç±»çš„åŒ…å«çš„æ“ä½œæœ‰ï¼š 1.é€‰æ‹©PCç«¯ç«¯å£å¹¶ä¸ç¡¬ä»¶è¿æ¥ 2.æ‰“å¼€CANæ€»çº¿ 3.å…³é—­CANæ€»çº¿
  */
-public class Initialization 
-{
-   
-   /**
-    * @roseuid 5193494D0216
-    */
-   public Initialization() 
-   {
-    
-   }
-   
-   /**
-    * @param a
-    * @roseuid 5193464000B3
-    */
-   public void choosePort(int a) 
-   {
-    
-   }
-   
-   /**
-    * @roseuid 519346500095
-    */
-   public void openCanBus() 
-   {
-    
-   }
-   
-   /**
-    * @roseuid 5193465901B7
-    */
-   public void closeCanbus() 
-   {
-    
-   }
+public class Initialization implements Operation {
+
+	/**
+	 * @roseuid 5193494D0216
+	 */
+	public Initialization() {
+
+	}
+
+	/**
+	 * @param a
+	 * @roseuid 5193464000B3
+	 */
+	public void choosePort(String newPort) {
+		CanInformation._portName = newPort;
+	}
+
+	/**
+	 * @roseuid 519346500095
+	 */
+	public void openCanBus() {
+		if (CanInformation._open == false) {
+			Command newCmd = new Command("O0");
+			Rs232Command rs232 = new Rs232Command(newCmd,
+					CanInformation._portName);
+			ReceiveAnswer ans = rs232.sendCommand();
+			CanInformation._open = true;
+		}
+	}
+
+	/**
+	 * @roseuid 5193465901B7
+	 */
+	public void closeCanbus() {
+		if (CanInformation._open == true) {
+			Command newCmd = new Command("C");
+			Rs232Command rs232 = new Rs232Command(newCmd,
+					CanInformation._portName);
+			ReceiveAnswer ans = rs232.sendCommand();
+			CanInformation._open = false;
+		}
+	}
 }

@@ -6,7 +6,7 @@ import com.tju.CanCommunication.Communication.Command;
 import com.tju.CanCommunication.Communication.ReceiveAnswer;
 import com.tju.CanCommunication.Communication.Rs232Command;
 
-public class Settings {
+public class Settings implements Operation {
 
 	/**
 	 * @roseuid 5193494D025C

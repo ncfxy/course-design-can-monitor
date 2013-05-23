@@ -16,33 +16,36 @@ public class Settings {
 	}
 
 	/**
-	 * @roseuid 519347C30395
-	 * ÉèÖÃCANbit-rate,Ê¹ÓÃSÃüÁî£¬It works only after power up or if controller is in reset mode after command ¡°C¡±
-	 *Return: [CR] for Open OK, [BEL] for Failure
+	 * @roseuid 519347C30395 ï¿½ï¿½ï¿½ï¿½CANbit-rate,Ê¹ï¿½ï¿½Sï¿½ï¿½ï¿½î£¬It works only after power
+	 *          up or if controller is in reset mode after command ï¿½ï¿½Cï¿½ï¿½ Return:
+	 *          [CR] for Open OK, [BEL] for Failure
 	 */
-	public void setBitRate(String bitRate) {
+	public ReceiveAnswer setBitRate(String bitRate) {
+		ReceiveAnswer ans = null;
 		if (CanInformation._open == false) {
 			Command newCmd = new Command("S" + bitRate);
 			Rs232Command rs232 = new Rs232Command(newCmd,
 					CanInformation._portName);
-			ReceiveAnswer ans = rs232.sendCommand();
-			System.out.println("·µ»Ø½á¹û£º  " + ans);
+			ans = rs232.sendCommand();
 			CanInformation._bitRate = bitRate;
-		}		
+			return ans;
+		}
+		return ans;
 	}
 
 	/**
-	 * @roseuid 5193480D00B7
-	 * Ê¹ÓÃCÃüÁî¹Ø±ÕCAN ×ÜÏß£¬ It works only if the controller was set to Operation mode with command ¡°O¡± before.
-	 * Return:[CR] for Open OK, [BEL] for Failure
+	 * @roseuid 5193480D00B7 Ê¹ï¿½ï¿½Cï¿½ï¿½ï¿½ï¿½Ø±ï¿½CAN ï¿½ï¿½ï¿½ß£ï¿½ It works only if the controller
+	 *          was set to Operation mode with command ï¿½ï¿½Oï¿½ï¿½ before. Return:[CR]
+	 *          for Open OK, [BEL] for Failure
 	 */
-	public void setCANMode(String modeId) {
+	public ReceiveAnswer setCANMode(String modeId) {
+		ReceiveAnswer ans = null;
 		if (CanInformation._open == true) {
 			Command newCmd = new Command("C");
 			Rs232Command rs232 = new Rs232Command(newCmd,
 					CanInformation._portName);
-			ReceiveAnswer ans = rs232.sendCommand();
-			System.out.println("·µ»Ø½á¹û£º  " + ans);
+			ans = rs232.sendCommand();
+			System.out.println(ans.getAnsString());
 			try {
 				Thread.sleep(1000);
 			} catch (Exception e) {
@@ -51,140 +54,163 @@ public class Settings {
 			newCmd = new Command("O" + modeId);
 			rs232 = new Rs232Command(newCmd, CanInformation._portName);
 			ans = rs232.sendCommand();
-			System.out.println("·µ»Ø½á¹û£º  " + ans);
+			System.out.println(ans.getAnsString());
 			CanInformation._openModeId = modeId;
+			return ans;
 		} else {
 			if (judgeBitRateSet()) {
 				Command newCmd = new Command("O" + modeId);
 				Rs232Command rs232 = new Rs232Command(newCmd,
 						CanInformation._portName);
-				ReceiveAnswer ans = rs232.sendCommand();
-				System.out.println("·µ»Ø½á¹û£º  " + ans);
+				ans = rs232.sendCommand();
+				System.out.println(ans);
 				CanInformation._openModeId = modeId;
+				return ans;
 			} else {
 				System.out.println("No S6");
 			}
 		}
 
+		return ans;
 	}
 
 	/**
-	 * @roseuid 5193482501D9
-	 * Write SJA1000 register [rr] with data [dd]
-	 * Return ¡°\r¡± or ¡°\a¡± , [BEL] for error of register range.
+	 * @roseuid 5193482501D9 Write SJA1000 register [rr] with data [dd] Return
+	 *          ï¿½ï¿½\rï¿½ï¿½ or ï¿½ï¿½\aï¿½ï¿½ , [BEL] for error of register range.
 	 */
-	public void setSJA_Register(String value) {
+	public ReceiveAnswer setSJA_Register(String value) {
 		Command newCmd = new Command("W" + value);
-		Rs232Command rs232 = new Rs232Command(newCmd,
-				CanInformation._portName);
+		Rs232Command rs232 = new Rs232Command(newCmd, CanInformation._portName);
 		ReceiveAnswer ans = rs232.sendCommand();
-		System.out.println("·µ»Ø½á¹û£º  " + ans);
+		System.out.println(ans.getAnsString());
 		CanInformation._SJARegisterValue = value;
-				
+		return ans;
+
 	}
-	
-	
+
 	/**
-	*Write acceptance code register [ACR] of SJA1000. 
-	*This command works only if controller is setup with command ¡°S¡± and in reset mode. 
-	*Return: [CR] or [BEL]
-	*/
-	
-	public void setACR_Register(String value){
-		if (judgeBitRateSet() && CanInformation._open == false) {
+	 * Write acceptance code register [ACR] of SJA1000. This command works only
+	 * if controller is setup with command ï¿½ï¿½Sï¿½ï¿½ and in reset mode. Return: [CR]
+	 * or [BEL]
+	 */
+
+	public ReceiveAnswer setACR_Register(String value) {
+		ReceiveAnswer ans = null;
+		if (CanInformation._open == false) {
 			Command newCmd = new Command("M" + value);
 			Rs232Command rs232 = new Rs232Command(newCmd,
 					CanInformation._portName);
-			ReceiveAnswer ans = rs232.sendCommand();
-			System.out.println("·µ»Ø½á¹û£º  " + ans);
+			ans = rs232.sendCommand();
+			System.out.println("ï¿½ï¿½ï¿½Ø½ï¿½ï¿½  " + ans);
 			CanInformation._ACRRegisterValue = value;
+			return ans;
 		}
+		return ans;
 	}
 
 	/**
-	 * @roseuid 51934FE1024A
-	 * Setup with BTR0/BTR1 CAN bit-rates where xx and yy is a user defined values of hex value string for SJA1000 bit rate register BTR0 and BTR1. 
-	 * It works only after power up or if controller is in reset mode after command ¡°C¡±
-	 * Return: [CR] for Open OK, [BEL] for Failure
+	 * @roseuid 51934FE1024A Setup with BTR0/BTR1 CAN bit-rates where xx and yy
+	 *          is a user defined values of hex value string for SJA1000 bit
+	 *          rate register BTR0 and BTR1. It works only after power up or if
+	 *          controller is in reset mode after command ï¿½ï¿½Cï¿½ï¿½ Return: [CR] for
+	 *          Open OK, [BEL] for Failure
 	 */
-	public void setBTR_Register(String value) {
-		if(CanInformation._open == false){
-			Command newCmd = new Command("S" + value);
+	public ReceiveAnswer setBTR_Register(String value) {
+		ReceiveAnswer ans = null;
+		if (CanInformation._open == false) {
+			Command newCmd = new Command("s" + value);
 			Rs232Command rs232 = new Rs232Command(newCmd,
 					CanInformation._portName);
-			ReceiveAnswer ans = rs232.sendCommand();
-			System.out.println("·µ»Ø½á¹û£º  " + ans);
+			ans = rs232.sendCommand();
+			System.out.println("ï¿½ï¿½ï¿½Ø½ï¿½ï¿½  " + ans);
 			CanInformation._BTRRegisterValue = value;
+			return ans;
 		}
+		return ans;
 	}
-	
+
 	/**
-	 * @roseuid 51934FE1024A
-	 * Write acceptance mask register [AMR] of SJA1000. 
-	 * This command works only if controller is setup with command ¡°S¡± and in reset mode. One filter mode is internally determined.
-	 * Return: [CR] or [BEL]
+	 * @roseuid 51934FE1024A Write acceptance mask register [AMR] of SJA1000.
+	 *          This command works only if controller is setup with command
+	 *          ï¿½ï¿½Sï¿½ï¿½ and in reset mode. One filter mode is internally
+	 *          determined. Return: [CR] or [BEL]
 	 */
-	
-	public void setAMR_Register(String value) {
-		if (judgeBitRateSet() && CanInformation._open == false) {
+
+	public ReceiveAnswer setAMR_Register(String value) {
+		ReceiveAnswer ans = null;
+		if (CanInformation._open == false) {
 			Command newCmd = new Command("m" + value);
 			Rs232Command rs232 = new Rs232Command(newCmd,
 					CanInformation._portName);
-			ReceiveAnswer ans = rs232.sendCommand();
-			System.out.println("·µ»Ø½á¹û£º  " + ans);
+			ans = rs232.sendCommand();
+			System.out.println("ï¿½ï¿½ï¿½Ø½ï¿½ï¿½  " + ans);
 			CanInformation._AMRRegisterValue = value;
+			return ans;
 		}
+		return ans;
 	}
 
 	/**
-	 * @roseuid 51934FFE033A
-	 * This command flush the CAN-controller, and bring the controller to Reset mode. Controller¡¯s buffers and variables are all initialized.
-	 * Return: [CR] for Open OK, [BEL] for Failure when buffer is full. Maximum buffered Frames=32
+	 * @roseuid 51934FFE033A This command flush the CAN-controller, and bring
+	 *          the controller to Reset mode. Controllerï¿½ï¿½s buffers and
+	 *          variables are all initialized. Return: [CR] for Open OK, [BEL]
+	 *          for Failure when buffer is full. Maximum buffered Frames=32
 	 */
-	public void clearAndInit() {
+	public ReceiveAnswer clearAndInit() {
 		Command newCmd = new Command("f");
-		Rs232Command rs232 = new Rs232Command(newCmd,
-				CanInformation._portName);
+		Rs232Command rs232 = new Rs232Command(newCmd, CanInformation._portName);
 		ReceiveAnswer ans = rs232.sendCommand();
-		System.out.println("·µ»Ø½á¹û£º  " + ans);
 		CanInformation._isFlush = true;
+		return ans;
 	}
-	
 
 	/**
-	 * @roseuid 5193502F02EA
-	 * ÉèÖÃÎÄ¼þÃüÁîµÄÖÜÆÚ£¬ÕâÀï²»ÐèÒªµ÷ÓÃCANÃüÁî
+	 * @roseuid 5193502F02EA ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ú£ï¿½ï¿½ï¿½ï¿½ï²»ï¿½ï¿½Òªï¿½ï¿½ï¿½ï¿½CANï¿½ï¿½ï¿½ï¿½
 	 */
 	public void setDocCmdCycle(String value) {
 		CanInformation._DocCmdCycle = value;
 	}
-	
 
 	/**
-	 * @roseuid 5193505A0308
-	 * µ÷ÓÃZ0/Z1ÃüÁîÀ´ÉèÖÃÊÇ·ñÌí¼ÓÊ±¼ä´Á£¬Z1ÉèÖÃÌí¼ÓÊ±¼ä´Á
-	 *
+	 * @roseuid 5193505A0308 ï¿½ï¿½ï¿½ï¿½Z0/Z1ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç·ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½ï¿½ï¿½ï¿½Z1ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½ï¿½
+	 * 
 	 */
-	public void isAddTimeFlag(String value) {
+	public ReceiveAnswer isAddTimeFlag(String value) {
 		Command newCmd = new Command("Z" + value);
-		Rs232Command rs232 = new Rs232Command(newCmd,
-				CanInformation._portName);
+		Rs232Command rs232 = new Rs232Command(newCmd, CanInformation._portName);
 		ReceiveAnswer ans = rs232.sendCommand();
-		System.out.println("·µ»Ø½á¹û£º  " + ans);
+		if (value == "1") {
+			CanInformation._timeStamp = "ON";
+		} else {
+			CanInformation._timeStamp = "OFF";
+		}
+		CanInformation.setSystemStates();
+		System.out.println(ans.getAnsString());
+		return ans;
 	}
 
 	/**
 	 * @roseuid 5193506A01AA
-	 * µ÷ÓÃB0/B1ÃüÁîÀ´ÉèÖÃÊÇ·ñÉèÖÃ·¢ËÍÐÅÏ¢ÊÇ·ñÊÇ×èÈû×´Ì¬¡£B1Îª½øÈë×èÈû×´Ì¬.reset Ä£Ê½ÏÂ²»¿ÉÒÔ½øÐÐÉèÖÃ
+	 *          ï¿½ï¿½ï¿½ï¿½B0/B1ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç·ï¿½ï¿½ï¿½ï¿½Ã·ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢ï¿½Ç·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½×´Ì¬ï¿½ï¿½B1Îªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½×´Ì¬.reset
+	 *          Ä£Ê½ï¿½Â²ï¿½ï¿½ï¿½ï¿½Ô½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	 */
-	public void isBlockMode(String value) {
-		if(CanInformation._open == true){
+	public ReceiveAnswer isBlockMode(String value) {
+		ReceiveAnswer ans = null;
+		if (CanInformation._open == true) {
 			Command newCmd = new Command("B" + value);
 			Rs232Command rs232 = new Rs232Command(newCmd,
-				CanInformation._portName);
-			ReceiveAnswer ans = rs232.sendCommand();
-			System.out.println("·µ»Ø½á¹û£º  " + ans);
+					CanInformation._portName);
+			ans = rs232.sendCommand();
+			if (value.equals("0")) {
+				CanInformation._block = "OFF";
+			} else {
+				CanInformation._block = "ON";
+			}
+			CanInformation.setSystemStates();
+			System.out.println(ans.getAnsString());
+			return ans;
 		}
+		return ans;
 	}
 
 	private boolean judgeBitRateSet() {

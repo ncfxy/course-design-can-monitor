@@ -96,12 +96,17 @@ public class Rs232Command extends Thread implements CmdCommunication {
 		CommUtil comm3 = new CommUtil(portList, _portName);
 		comm3.send(_cmd.getFinalString());
 		try {
-			Thread.sleep(1000);
+			Thread.sleep(10);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		comm3.ClosePort();
 		_ans = new ReceiveAnswer(comm3.getAnsString());
+		if (_ans.getAnsString().charAt(0) == '\r') {
+			System.out.println("OK");
+		}else{
+			System.out.println("Failed");
+		}
+		System.out.println(_ans.getAnsString());
 	}
-
 }

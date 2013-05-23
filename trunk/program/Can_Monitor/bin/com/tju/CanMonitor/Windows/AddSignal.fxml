@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml" fx:controller="com.tju.CanMonitor.Windows.AddSignalWindow">
+  <children>
+    <GridPane id="GridPane" alignment="CENTER" layoutX="78.0" layoutY="40.0">
+      <children>
+        <GridPane id="GridPane" GridPane.columnIndex="0" GridPane.rowIndex="1">
+          <children>
+            <GridPane id="GridPane" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="0" GridPane.rowIndex="0">
+              <children>
+                <Label id="lable1" prefHeight="27.0" prefWidth="137.0" text="Signal Name:" GridPane.columnIndex="0" GridPane.rowIndex="0">
+                  <font>
+                    <Font name="System Bold" size="18.0" fx:id="x1" />
+                  </font>
+                </Label>
+                <Label id="lable1" font="$x1" prefHeight="27.0" prefWidth="200.0" text="Signal EndBit:(0~63)" GridPane.columnIndex="0" GridPane.rowIndex="4" />
+                <Label id="lable1" font="$x1" prefHeight="27.0" prefWidth="130.0" text="Signal Length:" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+                <Label id="lable1" font="$x1" prefHeight="27.0" prefWidth="200.0" text="Signal StartBit:(0~63)" GridPane.columnIndex="0" GridPane.rowIndex="3" />
+                <Label id="lable1" font="$x1" prefHeight="27.0" prefWidth="130.0" text="Signal ID:" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+              </children>
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+            </GridPane>
+            <GridPane id="GridPane" prefHeight="239.0" GridPane.columnIndex="1" GridPane.rowIndex="0">
+              <children>
+                <TextField id="SignalName" fx:id="signalName" prefHeight="27.0" prefWidth="200.0" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                <TextField id="SignalName" fx:id="signalId" prefHeight="27.0" prefWidth="200.0" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+                <TextField id="SignalName" fx:id="signalLength" prefHeight="27.0" prefWidth="200.0" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+                <TextField id="SignalName" fx:id="startBit" prefHeight="27.0" prefWidth="200.0" GridPane.columnIndex="0" GridPane.rowIndex="3" />
+                <TextField id="SignalName" fx:id="endBit" prefHeight="27.0" prefWidth="200.0" GridPane.columnIndex="0" GridPane.rowIndex="4" />
+              </children>
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+            </GridPane>
+          </children>
+          <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+          </columnConstraints>
+          <rowConstraints>
+            <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+          </rowConstraints>
+        </GridPane>
+        <Label prefHeight="30.0" prefWidth="200.0" text="Add Signal" GridPane.columnIndex="0" GridPane.rowIndex="0">
+          <font>
+            <Font name="System Italic" size="25.0" />
+          </font>
+        </Label>
+      </children>
+      <columnConstraints>
+        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+      </columnConstraints>
+      <rowConstraints>
+        <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+        <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+        <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+      </rowConstraints>
+    </GridPane>
+    <Button id="addSignal" fx:id="addButton" contentDisplay="BOTTOM" layoutX="245.0" layoutY="319.0" mnemonicParsing="false" onMouseClicked="#addSignal" prefWidth="89.0" text="ADD" textAlignment="LEFT" textFill="#1400ff">
+      <font>
+        <Font name="System Bold" size="15.0" />
+      </font>
+    </Button>
+  </children>
+</AnchorPane>

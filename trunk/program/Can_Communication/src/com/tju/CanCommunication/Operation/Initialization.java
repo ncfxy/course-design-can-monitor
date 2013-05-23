@@ -29,27 +29,31 @@ public class Initialization implements Operation {
 	/**
 	 * @roseuid 519346500095
 	 */
-	public void openCanBus(String value) {
+	public ReceiveAnswer openCanBus(String value) {
+		ReceiveAnswer ans = null;
 		if (CanInformation._open == false) {
-			Command newCmd = new Command("O"+value);
+			Command newCmd = new Command("O" + value);
 			Rs232Command rs232 = new Rs232Command(newCmd,
 					CanInformation._portName);
-			ReceiveAnswer ans = rs232.sendCommand();
+			ans = rs232.sendCommand();
 			CanInformation._open = true;
-			CanInformation._openMode = value;
+			CanInformation._openModeId = value;
+			return ans;
 		}
+		return ans;
 	}
 
 	/**
 	 * @roseuid 5193465901B7
 	 */
-	public void closeCanbus() {
-		if (CanInformation._open == true) {
-			Command newCmd = new Command("C");
-			Rs232Command rs232 = new Rs232Command(newCmd,
-					CanInformation._portName);
-			ReceiveAnswer ans = rs232.sendCommand();
+	public ReceiveAnswer closeCanbus() {
+		ReceiveAnswer ans = null;
+		Command newCmd = new Command("C");
+		Rs232Command rs232 = new Rs232Command(newCmd, CanInformation._portName);
+		ans = rs232.sendCommand();
+		if (ans.getAnsString().charAt(0) == '\r') {
 			CanInformation._open = false;
 		}
+		return ans;
 	}
 }

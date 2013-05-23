@@ -16,61 +16,54 @@ public class ReadAndDisplay {
 	}
 
 	/**
-	 * @roseuid 519351DC02EA
-	 * »ñµÃÈíÓ²¼þµÄ°æ±¾ºÅ£¬Ê¹ÓÃVÃüÁî
+	 * @roseuid 519351DC02EA ï¿½ï¿½ï¿½ï¿½ï¿½Ó²ï¿½ï¿½ï¿½Ä°æ±¾ï¿½Å£ï¿½Ê¹ï¿½ï¿½Vï¿½ï¿½ï¿½ï¿½
 	 */
-	public void getHardwareVersion() {
+	public ReceiveAnswer getHardwareVersion() {
 		Command newCmd = new Command("V");
-		Rs232Command rs232 = new Rs232Command(newCmd,
-			CanInformation._portName);
+		Rs232Command rs232 = new Rs232Command(newCmd, CanInformation._portName);
 		ReceiveAnswer ans = rs232.sendCommand();
+		return ans;
 	}
-	
 
 	/**
-	 * @roseuid 519351ED0088
-	 * Ê¹ÓÃNÃüÁî»ñµÃÓ²¼þÐòÁÐºÅ
+	 * @roseuid 519351ED0088 Ê¹ï¿½ï¿½Nï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ó²ï¿½ï¿½ï¿½ï¿½ï¿½Ðºï¿½
 	 */
-	public void getSerialNumber() {
+	public ReceiveAnswer getSerialNumber() {
 		Command newCmd = new Command("N");
-		Rs232Command rs232 = new Rs232Command(newCmd,
-			CanInformation._portName);
+		Rs232Command rs232 = new Rs232Command(newCmd, CanInformation._portName);
 		ReceiveAnswer ans = rs232.sendCommand();
+		return ans;
 	}
 
 	/**
-	 * @roseuid 51935210025E
-	 * ¶ÁÈ¡SJA¼Ä´æÆ÷µÄÖµ,Ê¹ÓÃGrrÃüÁî
+	 * @roseuid 51935210025E ï¿½ï¿½È¡SJAï¿½Ä´ï¿½ï¿½ï¿½ï¿½ï¿½Öµ,Ê¹ï¿½ï¿½Grrï¿½ï¿½ï¿½ï¿½
 	 */
-	public void getSJA_RegisterValue(String value) {
+	public ReceiveAnswer getSJA_RegisterValue(String value) {
 		Command newCmd = new Command("G" + value);
-		Rs232Command rs232 = new Rs232Command(newCmd,
-			CanInformation._portName);
+		Rs232Command rs232 = new Rs232Command(newCmd, CanInformation._portName);
 		ReceiveAnswer ans = rs232.sendCommand();
-		
-		System.out.println("ans = " + ans);
+		return ans;
 	}
 
 	/**
-	 * @roseuid 5193522C02AE
-	 * Ê¹ÓÃFÃüÁî¶ÁÈ¡SJA ErrorFlag
+	 * @roseuid 5193522C02AE Ê¹ï¿½ï¿½Fï¿½ï¿½ï¿½ï¿½ï¿½È¡SJA ErrorFlag
 	 */
-	public void getSJAErrorFlag() {
-		Command newCmd = new Command("F" );
-		Rs232Command rs232 = new Rs232Command(newCmd,
-			CanInformation._portName);
+	public ReceiveAnswer getSJAErrorFlag() {
+		Command newCmd = new Command("F");
+		Rs232Command rs232 = new Rs232Command(newCmd, CanInformation._portName);
 		ReceiveAnswer ans = rs232.sendCommand();
+		return ans;
 	}
 
 	/**
-	 * @roseuid 5193523F009C
-	 * Ê¹ÓÃFÃüÁî¶ÁÈ¡SJA1000¡¯s SR,ALC,ECR,RXERR,TXERR register from CAN
+	 * @roseuid 5193523F009C Ê¹ï¿½ï¿½Fï¿½ï¿½ï¿½ï¿½ï¿½È¡SJA1000ï¿½ï¿½s SR,ALC,ECR,RXERR,TXERR
+	 *          register from CAN
 	 */
-	public void getOtherRegisterValue() {
-		Command newCmd = new Command("F" );
-		Rs232Command rs232 = new Rs232Command(newCmd,
-			CanInformation._portName);
+	public ReceiveAnswer getOtherRegisterValue() {
+		Command newCmd = new Command("F");
+		Rs232Command rs232 = new Rs232Command(newCmd, CanInformation._portName);
 		ReceiveAnswer ans = rs232.sendCommand();
+		return ans;
 	}
 
 	/**
@@ -78,43 +71,42 @@ public class ReadAndDisplay {
 	 * 
 	 */
 	public void displaySendingCmd() {
-		
+
 	}
 
 	/**
 	 * @roseuid 5193527B00F7
 	 */
 	public void displayReceivingCmd() {
-		
+
 	}
 
 	/**
-	 * @roseuid 5193528E0331
-	 * ´¦Àí»ñµÃµÄÏûÏ¢£¬´ÓÏûÏ¢ÖÐÉ¾³ýÐÅºÅ
+	 * @roseuid 5193528E0331 ï¿½ï¿½ï¿½ï¿½ï¿½Ãµï¿½ï¿½ï¿½Ï¢ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢ï¿½ï¿½É¾ï¿½ï¿½ï¿½Åºï¿½
 	 * 
 	 */
 	public String deleteSignalFromMsg(String value) {
 		String msg = "";
 		char cmd = value.charAt(0);
-		switch (cmd){
-			case 't':
-			case 'r':
-				int length_t = value.charAt(4) - '0';
-				msg = value.substring(5, 5+length_t);
-				break;
-			case 'T':
-			case 'R':
-				int length_T = value.charAt(9) - '0';
-				msg = value.substring(10,10+length_T);
-				break;				
+		switch (cmd) {
+		case 't':
+		case 'r':
+			int length_t = value.charAt(4) - '0';
+			msg = value.substring(5, 5 + length_t);
+			break;
+		case 'T':
+		case 'R':
+			int length_T = value.charAt(9) - '0';
+			msg = value.substring(10, 10 + length_T);
+			break;
 		}
-		return msg;			
+		return msg;
 	}
 
 	/**
 	 * @roseuid 519352A90219
 	 */
 	public void displayData() {
-		
+
 	}
 }

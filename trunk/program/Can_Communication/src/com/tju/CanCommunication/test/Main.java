@@ -34,8 +34,8 @@ public class Main {
 		//	new Initialization().openCanBus(cinCmd);
 		//	new Settings().setCANMode(cinCmd);
 			new ReadAndDisplay().getSJA_RegisterValue(cinCmd);
-			System.out.println("��״̬ = " +CanInformation._open) ;
-			System.out.println("״̬ģʽ = "+CanInformation._openMode);
+			System.out.println("��״̬ = " +CanInformation._open) ;
+			System.out.println("״̬ģʽ = "+CanInformation._openModeId);
 			System.out.println("bitRate = "+ CanInformation._bitRate);
 		}
 	}

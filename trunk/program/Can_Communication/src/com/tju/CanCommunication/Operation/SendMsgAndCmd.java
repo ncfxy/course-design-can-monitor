@@ -6,107 +6,102 @@ import com.tju.CanCommunication.Communication.Command;
 import com.tju.CanCommunication.Communication.ReceiveAnswer;
 import com.tju.CanCommunication.Communication.Rs232Command;
 
+public class SendMsgAndCmd {
 
-public class SendMsgAndCmd 
-{
-   
-   /**
-    * @roseuid 5193494D02CA
-    */
-   public SendMsgAndCmd() 
-   {
-    
-   }
-   
-   /**
-    * @roseuid 519353770011
-    * ·¢ËÍ±ê×¼11bitÊý¾ÝÖ¡£¬°üÀ¨Êý¾Ý
-    * Ê¹ÓÃtÃüÁî,ÔÚ½çÃæÀàÖÐ±ØÐëÌí¼Ó¼ìÑéº¯Êý£¬valueÖµµÄµÚÒ»¸ö×Ö·ûÊÇ·ñÊÇ"t"
-    */
-   public void sendStandard11WithData(String value) 
-   {
+	/**
+	 * @roseuid 5193494D02CA
+	 */
+	public SendMsgAndCmd() {
 
+	}
+
+	/**
+	 * @roseuid 519353770011 ï¿½ï¿½ï¿½Í±ï¿½×¼11bitï¿½ï¿½ï¿½Ö¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	 *          Ê¹ï¿½ï¿½tï¿½ï¿½ï¿½ï¿½,ï¿½Ú½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð±ï¿½ï¿½ï¿½ï¿½ï¿½Ó¼ï¿½ï¿½éº¯ï¿½ï¿½valueÖµï¿½Äµï¿½Ò»ï¿½ï¿½ï¿½Ö·ï¿½ï¿½Ç·ï¿½ï¿½ï¿½"t"
+	 */
+	public ReceiveAnswer sendStandard11WithData(String value) {
+		ReceiveAnswer ans = null;
 		if (CanInformation._open == true) {
 			Command newCmd = new Command(value);
 			Rs232Command rs232 = new Rs232Command(newCmd,
 					CanInformation._portName);
-			ReceiveAnswer ans = rs232.sendCommand();
+			ans = rs232.sendCommand();
+			return ans;
 		}
-   }
-   
-   /**
-    *·¢ËÍ11Î»Êý¾ÝÖ¡£¬²»¼ÓÊý¾Ý²¿·Ö
-    *Í¬ÑùÐèÒªÔÚ½çÃæÀàÖÐÌí¼ÓÅÐ¶Ïº¯Êý£¬¿´·¢ËÍÊý¾ÝµÚÒ»Î»Öª·ñÊÇ¡°r¡±
-    */
-   public void sendStandard11WithoutData(String value) 
-   {
-	   if (CanInformation._open == true) {
+		return ans;
+	}
+
+	/**
+	 * ï¿½ï¿½ï¿½ï¿½11Î»ï¿½ï¿½ï¿½Ö¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ý²ï¿½ï¿½ï¿½ Í¬ï¿½ï¿½ï¿½ï¿½Òªï¿½Ú½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð¶Ïºï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ýµï¿½Ò»Î»Öªï¿½ï¿½ï¿½Ç¡ï¿½rï¿½ï¿½
+	 */
+	public ReceiveAnswer sendStandard11WithoutData(String value) {
+		ReceiveAnswer ans = null;
+		if (CanInformation._open == true) {
 			Command newCmd = new Command(value);
 			Rs232Command rs232 = new Rs232Command(newCmd,
 					CanInformation._portName);
-			ReceiveAnswer ans = rs232.sendCommand();
+			ans = rs232.sendCommand();
+			return ans;
 		}
-   }
-   
-   /**
-    * @roseuid 5193540202DE
-    * ·¢ËÍ29Î»´ûÊý¾ÝµÄÀ©Õ¹Êý¾ÝÖ¡£¬ÐèÒª´øÊý¾ÝÖ¡
-    * ÐèÒªÔÚ½çÃæÀàÖÐÌí¼ÓÅ¶°¶¶Îº¯Êý£¬·¢ËÍµÚÒ»Î»ÊÇ·ñÊÇ'T'
-    */
-   public void sendExtend29WithoutData(String value) 
-   {
-	   if (CanInformation._open == true) {
+		return ans;
+	}
+
+	/**
+	 * @roseuid 5193540202DE ï¿½ï¿½ï¿½ï¿½29Î»ï¿½ï¿½ï¿½ï¿½Ýµï¿½ï¿½ï¿½Õ¹ï¿½ï¿½ï¿½Ö¡ï¿½ï¿½ï¿½ï¿½Òªï¿½ï¿½ï¿½ï¿½ï¿½Ö¡
+	 *          ï¿½ï¿½Òªï¿½Ú½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Å¶ï¿½ï¿½ï¿½Îºï¿½ï¿½ï¿½ï¿½Íµï¿½Ò»Î»ï¿½Ç·ï¿½ï¿½ï¿½'T'
+	 */
+	public ReceiveAnswer sendExtend29WithoutData(String value) {
+		ReceiveAnswer ans = null;
+		if (CanInformation._open == true) {
 			Command newCmd = new Command(value);
 			Rs232Command rs232 = new Rs232Command(newCmd,
 					CanInformation._portName);
-			ReceiveAnswer ans = rs232.sendCommand();
+			ans = rs232.sendCommand();
+			return ans;
 		}
-   }
-   
-   /**
-    * @roseuid 5193550201B4
-    */
-   public void sendExtend29WithData(String value) 
-   {
-	   if (CanInformation._open == true) {
+		return ans;
+	}
+
+	/**
+	 * @roseuid 5193550201B4
+	 */
+	public ReceiveAnswer sendExtend29WithData(String value) {
+		ReceiveAnswer ans = null;
+		if (CanInformation._open == true) {
 			Command newCmd = new Command(value);
 			Rs232Command rs232 = new Rs232Command(newCmd,
 					CanInformation._portName);
-			ReceiveAnswer ans = rs232.sendCommand();
+			ans = rs232.sendCommand();
+			return ans;
 		}
-   }
-   
-   /**
-    * @roseuid 519355330092
-    * ´ÓÎÄ¼þ»ñµÃÃüÁî
-    */
-   public void getCmdFromFile(String value)
-   {
-	
-   }
-   
-   /**
-    * @roseuid 5193554200B0
-    * Ìí¼ÓÐÅºÅ
-    */
-   public void addSignal() 
-   {
-	   
-   }
-   
-   /**
-    * @roseuid 519355A60308
-    */
-   public void addMsg() 
-   {
-    
-   }
-   
-   /**
-    * @roseuid 519355B701A0
-    */
-   public void addSignalToMsg() 
-   {
-    
-   }
+		return ans;
+	}
+
+	/**
+	 * @roseuid 519355330092 ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	 */
+	public void getCmdFromFile(String value) {
+
+	}
+
+	/**
+	 * @roseuid 5193554200B0 ï¿½ï¿½ï¿½ï¿½Åºï¿½
+	 */
+	public void addSignal() {
+
+	}
+
+	/**
+	 * @roseuid 519355A60308
+	 */
+	public void addMsg() {
+
+	}
+
+	/**
+	 * @roseuid 519355B701A0
+	 */
+	public void addSignalToMsg() {
+
+	}
 }

@@ -10,409 +10,209 @@
 <?import javafx.scene.shape.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane id="AnchorPane" fx:id="mainWindow" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="668.0" prefWidth="1316.0" xmlns:fx="http://javafx.com/fxml" fx:controller="com.tju.CanMonitor.Windows.MainWindow">
+<AnchorPane id="AnchorPane" fx:id="mainWindow" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="-1.0" prefWidth="-1.0" xmlns:fx="http://javafx.com/fxml" fx:controller="com.tju.CanMonitor.Windows.MainWindow">
   <children>
-    <MenuBar layoutX="1.0" layoutY="-1.0" minHeight="20.0" prefHeight="30.0" prefWidth="1365.0">
-      <menus>
-        <Menu mnemonicParsing="false" text="File">
+    <GridPane id="GridPane" layoutX="0.0" layoutY="-1.0">
+      <children>
+        <MenuBar minHeight="20.0" prefHeight="30.0" prefWidth="1365.0" GridPane.columnIndex="0" GridPane.rowIndex="0">
+          <menus>
+            <Menu mnemonicParsing="false" text="File">
+              <items>
+                <MenuItem mnemonicParsing="false" onAction="#addMessage" text="Add Message" />
+                <MenuItem mnemonicParsing="false" onAction="#addSignal" text="Add Signal" />
+                <MenuItem mnemonicParsing="false" onAction="#addSignalToMessage" text="And Signal To Message" />
+                <MenuItem mnemonicParsing="false" onAction="#closeWindow" text="关闭" />
+              </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Edit">
+              <items>
+                <MenuItem mnemonicParsing="false" text="删除" />
+              </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Help">
+              <items>
+                <MenuItem mnemonicParsing="false" text="关于" />
+              </items>
+            </Menu>
+          </menus>
+        </MenuBar>
+        <SplitPane id="SplitPane" dividerPositions="0.19148936170212766" GridPane.columnIndex="0" GridPane.rowIndex="1">
           <items>
-            <MenuItem mnemonicParsing="false" onAction="#addMessage" text="Add Message" />
-            <MenuItem mnemonicParsing="false" onAction="#addSignal" text="Add Signal" />
-            <MenuItem mnemonicParsing="false" onAction="#addSignalToMessage" text="And Signal To Message" />
-            <MenuItem mnemonicParsing="false" onAction="#closeWindow" text="关闭" />
-          </items>
-        </Menu>
-        <Menu mnemonicParsing="false" text="Edit">
-          <items>
-            <MenuItem mnemonicParsing="false" text="删除" />
-          </items>
-        </Menu>
-        <Menu mnemonicParsing="false" text="Help">
-          <items>
-            <MenuItem mnemonicParsing="false" text="关于" />
-          </items>
-        </Menu>
-      </menus>
-    </MenuBar>
-    <SplitPane id="SplitPane" dividerPositions="0.1854899027673897" layoutX="0.0" layoutY="34.0">
-      <items>
-        <GridPane id="GridPane" prefHeight="632.0" prefWidth="243.0">
-          <children>
-            <GridPane id="GridPane" GridPane.columnIndex="1" GridPane.rowIndex="0">
+            <GridPane id="GridPane" prefHeight="-1.0" prefWidth="-1.0">
               <children>
-                <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="135.00009999999747" opacity="0.3" stroke="BLACK" strokeType="INSIDE" width="216.0" GridPane.columnIndex="0" GridPane.rowIndex="0" />
-                <GridPane id="GridPane" prefHeight="139.0" prefWidth="216.0" GridPane.columnIndex="0" GridPane.rowIndex="0">
+                <GridPane id="GridPane" GridPane.columnIndex="1" GridPane.rowIndex="0">
                   <children>
-                    <GridPane id="GridPane" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                    <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="135.00009999999747" opacity="0.3" stroke="BLACK" strokeType="INSIDE" width="216.0" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                    <GridPane id="GridPane" prefHeight="139.0" prefWidth="216.0" GridPane.columnIndex="0" GridPane.rowIndex="0">
                       <children>
-                        <GridPane id="GridPane" alignment="CENTER" GridPane.columnIndex="0" GridPane.rowIndex="0">
+                        <GridPane id="GridPane" GridPane.columnIndex="1" GridPane.rowIndex="1">
                           <children>
-                            <Label text="SelectPort" GridPane.columnIndex="0" GridPane.rowIndex="0" />
-                            <MenuButton id="mainSelectComMenuButton" fx:id="mainSelectCom" mnemonicParsing="false" prefWidth="92.0" text="COM3" GridPane.columnIndex="0" GridPane.rowIndex="1">
-                              <items>
-                                <MenuItem mnemonicParsing="false" onAction="#changePort" text="COM1" />
-                                <MenuItem mnemonicParsing="false" onAction="#changePort" text="COM2" />
-                                <MenuItem mnemonicParsing="false" onAction="#changePort" text="COM3" />
-                                <MenuItem mnemonicParsing="false" onAction="#changePort" text="COM4" />
-                                <MenuItem mnemonicParsing="false" onAction="#changePort" text="COM5" />
-                                <MenuItem mnemonicParsing="false" onAction="#changePort" text="COM6" />
-                                <MenuItem mnemonicParsing="false" onAction="#changePort" text="COM7" />
-                                <MenuItem mnemonicParsing="false" onAction="#changePort" text="COM8" />
-                                <MenuItem mnemonicParsing="false" onAction="#changePort" text="COM9" />
-                              </items>
-                            </MenuButton>
-                            <Button fx:id="mainClosePort" mnemonicParsing="false" text="ChoosePort" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+                            <GridPane id="GridPane" alignment="CENTER" GridPane.columnIndex="0" GridPane.rowIndex="0">
+                              <children>
+                                <Label text="SelectPort" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                                <MenuButton id="mainSelectComMenuButton" fx:id="mainSelectCom" mnemonicParsing="false" prefWidth="92.0" text="COM3" GridPane.columnIndex="0" GridPane.rowIndex="1">
+                                  <items>
+                                    <MenuItem mnemonicParsing="false" onAction="#changePort" text="COM1" />
+                                    <MenuItem mnemonicParsing="false" onAction="#changePort" text="COM2" />
+                                    <MenuItem mnemonicParsing="false" onAction="#changePort" text="COM3" />
+                                    <MenuItem mnemonicParsing="false" onAction="#changePort" text="COM4" />
+                                    <MenuItem mnemonicParsing="false" onAction="#changePort" text="COM5" />
+                                    <MenuItem mnemonicParsing="false" onAction="#changePort" text="COM6" />
+                                    <MenuItem mnemonicParsing="false" onAction="#changePort" text="COM7" />
+                                    <MenuItem mnemonicParsing="false" onAction="#changePort" text="COM8" />
+                                    <MenuItem mnemonicParsing="false" onAction="#changePort" text="COM9" />
+                                  </items>
+                                </MenuButton>
+                                <Button fx:id="mainClosePort" mnemonicParsing="false" text="ChoosePort" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+                              </children>
+                              <columnConstraints>
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+                              </columnConstraints>
+                              <rowConstraints>
+                                <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                                <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                                <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                              </rowConstraints>
+                            </GridPane>
+                            <GridPane id="GridPane" GridPane.columnIndex="1" GridPane.rowIndex="0">
+                              <children>
+                                <Label prefWidth="62.0" text="Baud Rate" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                                <MenuButton id="mainBaudRateMenuButton" fx:id="mainBaudRate" mnemonicParsing="false" prefWidth="84.0" text="19200" GridPane.columnIndex="0" GridPane.rowIndex="1">
+                                  <items>
+                                    <MenuItem mnemonicParsing="false" onAction="#changeBaudRate" text="1200" />
+                                    <MenuItem mnemonicParsing="false" onAction="#changeBaudRate" text="2400" />
+                                    <MenuItem mnemonicParsing="false" onAction="#changeBaudRate" text="4800" />
+                                    <MenuItem mnemonicParsing="false" onAction="#changeBaudRate" text="9600" />
+                                    <MenuItem mnemonicParsing="false" onAction="#changeBaudRate" text="14400" />
+                                    <MenuItem mnemonicParsing="false" onAction="#changeBaudRate" text="19200" />
+                                    <MenuItem mnemonicParsing="false" onAction="#changeBaudRate" text="28800" />
+                                    <MenuItem mnemonicParsing="false" onAction="#changeBaudRate" text="38400" />
+                                  </items>
+                                </MenuButton>
+                                <Button fx:id="mainSet" mnemonicParsing="false" prefWidth="62.0" text="Set" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+                              </children>
+                              <columnConstraints>
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+                              </columnConstraints>
+                              <rowConstraints>
+                                <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                                <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                                <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                              </rowConstraints>
+                            </GridPane>
                           </children>
                           <columnConstraints>
+                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
                             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
                           </columnConstraints>
                           <rowConstraints>
                             <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
-                            <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
-                            <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
                           </rowConstraints>
                         </GridPane>
-                        <GridPane id="GridPane" GridPane.columnIndex="1" GridPane.rowIndex="0">
-                          <children>
-                            <Label prefWidth="62.0" text="Baud Rate" GridPane.columnIndex="0" GridPane.rowIndex="0" />
-                            <MenuButton id="mainBaudRateMenuButton" fx:id="mainBaudRate" mnemonicParsing="false" prefWidth="84.0" text="19200" GridPane.columnIndex="0" GridPane.rowIndex="1">
-                              <items>
-                                <MenuItem mnemonicParsing="false" onAction="#changeBaudRate" text="1200" />
-                                <MenuItem mnemonicParsing="false" onAction="#changeBaudRate" text="2400" />
-                                <MenuItem mnemonicParsing="false" onAction="#changeBaudRate" text="4800" />
-                                <MenuItem mnemonicParsing="false" onAction="#changeBaudRate" text="9600" />
-                                <MenuItem mnemonicParsing="false" onAction="#changeBaudRate" text="14400" />
-                                <MenuItem mnemonicParsing="false" onAction="#changeBaudRate" text="19200" />
-                                <MenuItem mnemonicParsing="false" onAction="#changeBaudRate" text="28800" />
-                                <MenuItem mnemonicParsing="false" onAction="#changeBaudRate" text="38400" />
-                              </items>
-                            </MenuButton>
-                            <Button fx:id="mainSet" mnemonicParsing="false" prefWidth="62.0" text="Set" GridPane.columnIndex="0" GridPane.rowIndex="2" />
-                          </children>
-                          <columnConstraints>
-                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
-                          </columnConstraints>
-                          <rowConstraints>
-                            <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
-                            <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
-                            <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
-                          </rowConstraints>
-                        </GridPane>
+                        <Label prefWidth="132.0" text="Com Port Parameter" GridPane.columnIndex="1" GridPane.rowIndex="0" />
                       </children>
                       <columnConstraints>
-                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
-                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="24.0" minWidth="10.0" prefWidth="12.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="204.0" minWidth="10.0" prefWidth="204.0" />
                       </columnConstraints>
                       <rowConstraints>
-                        <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="48.0" minHeight="10.0" prefHeight="19.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="117.0" minHeight="10.0" prefHeight="117.0" vgrow="SOMETIMES" />
                       </rowConstraints>
                     </GridPane>
-                    <Label prefWidth="132.0" text="Com Port Parameter" GridPane.columnIndex="1" GridPane.rowIndex="0" />
-                  </children>
-                  <columnConstraints>
-                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="24.0" minWidth="10.0" prefWidth="12.0" />
-                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="204.0" minWidth="10.0" prefWidth="204.0" />
-                  </columnConstraints>
-                  <rowConstraints>
-                    <RowConstraints maxHeight="48.0" minHeight="10.0" prefHeight="19.0" vgrow="SOMETIMES" />
-                    <RowConstraints maxHeight="117.0" minHeight="10.0" prefHeight="117.0" vgrow="SOMETIMES" />
-                  </rowConstraints>
-                </GridPane>
-              </children>
-              <columnConstraints>
-                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
-              </columnConstraints>
-              <rowConstraints>
-                <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
-              </rowConstraints>
-            </GridPane>
-            <GridPane id="GridPane" GridPane.columnIndex="1" GridPane.rowIndex="2">
-              <children>
-                <TreeView id="mainTreeView" fx:id="messageAndSignal" prefHeight="236.0" prefWidth="216.0" GridPane.columnIndex="0" GridPane.rowIndex="0">
-                  <contextMenu>
-                    <ContextMenu>
-                      <items>
-                        <MenuItem mnemonicParsing="false" onAction="#addMessage" text="Add Message" />
-                        <MenuItem mnemonicParsing="false" onAction="#addSignal" text="Add Signal" />
-                        <MenuItem mnemonicParsing="false" onAction="#addSignalToMessage" text="Add Signal To Message" />
-                        <MenuItem mnemonicParsing="false" onAction="#refresh" text="refresh" />
-                      </items>
-                    </ContextMenu>
-                  </contextMenu>
-                </TreeView>
-              </children>
-              <columnConstraints>
-                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
-              </columnConstraints>
-              <rowConstraints>
-                <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
-              </rowConstraints>
-            </GridPane>
-            <AnchorPane minHeight="246.0" prefHeight="246.0" prefWidth="208.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
-              <children>
-                <Text layoutX="14.0" layoutY="18.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Send Information" />
-                <TextArea fx:id="informationArea" editable="false" layoutX="0.0" layoutY="27.0" prefHeight="193.0" prefWidth="216.0" promptText="" style="" text="" wrapText="true" />
-                <Button id="mainStepdriver" fx:id="mainCommandsStepdriver" layoutX="7.0" layoutY="219.0" mnemonicParsing="false" text="Stepdriver" />
-                <Button id="mainClear" fx:id="mainCommandsClear" layoutX="130.0" layoutY="219.0" mnemonicParsing="false" onMouseClicked="#clear" text="Clear" />
-              </children>
-            </AnchorPane>
-          </children>
-          <columnConstraints>
-            <ColumnConstraints hgrow="SOMETIMES" maxWidth="11.0" minWidth="10.0" prefWidth="11.0" />
-            <ColumnConstraints hgrow="SOMETIMES" maxWidth="226.0" minWidth="10.0" prefWidth="226.0" />
-            <ColumnConstraints hgrow="SOMETIMES" maxWidth="7.0" minWidth="0.0" prefWidth="0.0" />
-            <ColumnConstraints hgrow="SOMETIMES" maxWidth="10.0" minWidth="10.0" prefWidth="10.0" />
-          </columnConstraints>
-          <rowConstraints>
-            <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
-          </rowConstraints>
-        </GridPane>
-        <SplitPane id="SplitPane" dividerPositions="0.7836990595611285" orientation="VERTICAL" visible="true">
-          <items>
-            <GridPane id="GridPane">
-              <children>
-                <GridPane id="GridPane" GridPane.columnIndex="0" GridPane.rowIndex="0">
-                  <children>
-                    <AnchorPane minWidth="476.0" prefHeight="129.0" prefWidth="476.0" GridPane.columnIndex="0" GridPane.rowIndex="0">
-                      <children>
-                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="136.0" layoutX="-1.0" layoutY="1.0" opacity="0.28" smooth="true" stroke="BLACK" strokeType="INSIDE" visible="true" width="486.0" />
-                        <GridPane id="GridPane" prefHeight="137.0" prefWidth="476.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                          <children>
-                            <Label prefWidth="62.0" text="Setting" GridPane.columnIndex="0" GridPane.rowIndex="0" />
-                            <GridPane id="GridPane" GridPane.columnIndex="0" GridPane.rowIndex="1">
-                              <children>
-                                <Label prefWidth="187.0" text="Set Can into Reset Mode:" GridPane.columnIndex="0" GridPane.rowIndex="0" />
-                                <Label text="Set Can into Operationalt Mode:" GridPane.columnIndex="0" GridPane.rowIndex="1" />
-                                <Label prefWidth="187.0" text="Message Send On/Off Mode:" GridPane.columnIndex="0" GridPane.rowIndex="2" />
-                                <Label prefWidth="187.0" text="Setup bit rate:" GridPane.columnIndex="0" GridPane.rowIndex="3" />
-                                <Label prefWidth="187.0" text="Set TimeStamp On/Off:" GridPane.columnIndex="0" GridPane.rowIndex="4" />
-                                <Button fx:id="mainResetMode" mnemonicParsing="false" onMouseClicked="#resetMode" prefWidth="103.0" text="Reset Mode" GridPane.columnIndex="1" GridPane.rowIndex="0" />
-                                <GridPane id="GridPane" GridPane.columnIndex="1" GridPane.rowIndex="1">
-                                  <children>
-                                    <Button fx:id="mainNormalMode" mnemonicParsing="false" onMouseClicked="#setNormalMode" prefWidth="103.0" text="Normal Mode" GridPane.columnIndex="1" GridPane.rowIndex="0" />
-                                    <Button fx:id="mainSelfTest" mnemonicParsing="false" onMouseClicked="#setSelfTest" prefWidth="73.0" text="Self Test" GridPane.columnIndex="0" GridPane.rowIndex="0" />
-                                    <Button fx:id="mainListenOnly" mnemonicParsing="false" onMouseClicked="#setListenOnly" prefWidth="92.0" text="Listen Only" GridPane.columnIndex="2" GridPane.rowIndex="0" />
-                                  </children>
-                                  <columnConstraints>
-                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
-                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
-                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
-                                  </columnConstraints>
-                                  <rowConstraints>
-                                    <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
-                                  </rowConstraints>
-                                </GridPane>
-                                <GridPane id="GridPane" GridPane.columnIndex="1" GridPane.rowIndex="2">
-                                  <children>
-                                    <Button fx:id="mainBlokeOn" mnemonicParsing="false" onMouseClicked="#blockOn" text="Bloke On" GridPane.columnIndex="0" GridPane.rowIndex="0" />
-                                    <Button fx:id="mainBlokeOff" mnemonicParsing="false" onMouseClicked="#blockOff" text="Bloke Off" GridPane.columnIndex="1" GridPane.rowIndex="0" />
-                                  </children>
-                                  <columnConstraints>
-                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
-                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
-                                  </columnConstraints>
-                                  <rowConstraints>
-                                    <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
-                                  </rowConstraints>
-                                </GridPane>
-                                <GridPane id="GridPane" GridPane.columnIndex="1" GridPane.rowIndex="3">
-                                  <children>
-                                    <Button id="mainSetupBitRateOk" fx:id="mainListenOnlyOk" mnemonicParsing="false" onMouseClicked="#setBitRate" prefWidth="72.9998779296875" text="OK" GridPane.columnIndex="1" GridPane.rowIndex="0" />
-                                    <MenuButton fx:id="mainSetupBitRate" mnemonicParsing="false" prefWidth="73.0" text="6" GridPane.columnIndex="0" GridPane.rowIndex="0">
-                                      <items>
-                                        <MenuItem mnemonicParsing="false" onAction="#bitRateChoose" text="1" />
-                                        <MenuItem mnemonicParsing="false" onAction="#bitRateChoose" text="2" />
-                                        <MenuItem mnemonicParsing="false" onAction="#bitRateChoose" text="3" />
-                                        <MenuItem mnemonicParsing="false" onAction="#bitRateChoose" text="4" />
-                                        <MenuItem mnemonicParsing="false" onAction="#bitRateChoose" text="5" />
-                                        <MenuItem mnemonicParsing="false" onAction="#bitRateChoose" text="6" />
-                                        <MenuItem mnemonicParsing="false" onAction="#bitRateChoose" text="7" />
-                                        <MenuItem mnemonicParsing="false" onAction="#bitRateChoose" text="8" />
-                                      </items>
-                                    </MenuButton>
-                                  </children>
-                                  <columnConstraints>
-                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
-                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
-                                  </columnConstraints>
-                                  <rowConstraints>
-                                    <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
-                                  </rowConstraints>
-                                </GridPane>
-                                <GridPane id="GridPane" GridPane.columnIndex="1" GridPane.rowIndex="4">
-                                  <children>
-                                    <Button fx:id="mainTimestampOn" mnemonicParsing="false" onMouseClicked="#timeStampOn" text="Timestamp On" GridPane.columnIndex="0" GridPane.rowIndex="0" />
-                                    <Button fx:id="mainTimestampOff" mnemonicParsing="false" onMouseClicked="#timeStampOff" text="Timestamp Off" GridPane.columnIndex="1" GridPane.rowIndex="0" />
-                                  </children>
-                                  <columnConstraints>
-                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
-                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
-                                  </columnConstraints>
-                                  <rowConstraints>
-                                    <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
-                                  </rowConstraints>
-                                </GridPane>
-                              </children>
-                              <columnConstraints>
-                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
-                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
-                              </columnConstraints>
-                              <rowConstraints>
-                                <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
-                                <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
-                                <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
-                                <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
-                                <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
-                              </rowConstraints>
-                            </GridPane>
-                          </children>
-                          <columnConstraints>
-                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
-                          </columnConstraints>
-                          <rowConstraints>
-                            <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
-                            <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
-                          </rowConstraints>
-                        </GridPane>
-                      </children>
-                    </AnchorPane>
-                    <AnchorPane prefHeight="355.0" prefWidth="486.0" GridPane.columnIndex="0" GridPane.rowIndex="2">
-                      <children>
-                        <AnchorPane layoutX="0.0" layoutY="0.0" prefHeight="129.0" prefWidth="486.0">
-                          <children>
-                            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="129.99998474121094" layoutX="0.0" layoutY="0.0" opacity="0.2" stroke="BLACK" strokeType="INSIDE" width="486.0" />
-                            <GridPane id="GridPane" prefHeight="130.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                              <children>
-                                <Label prefWidth="38.0" text="Send" GridPane.columnIndex="0" GridPane.rowIndex="0" />
-                                <GridPane id="GridPane" GridPane.columnIndex="0" GridPane.rowIndex="1">
-                                  <children>
-                                    <GridPane id="GridPane" prefWidth="476.0" GridPane.columnIndex="0" GridPane.rowIndex="0">
-                                      <children>
-                                        <Label text="Send Data and Command:" GridPane.columnIndex="0" GridPane.rowIndex="0" />
-                                        <TextField id="mainDataTextField" fx:id="mainSendSendDataTF" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="0" />
-                                        <Button id="mainDataSend" fx:id="mainSendSendData" mnemonicParsing="false" onMouseClicked="#sendDataAndComand" text="Send" GridPane.columnIndex="2" GridPane.rowIndex="0" />
-                                      </children>
-                                      <columnConstraints>
-                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
-                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
-                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
-                                      </columnConstraints>
-                                      <rowConstraints>
-                                        <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
-                                      </rowConstraints>
-                                    </GridPane>
-                                    <Label prefWidth="476.0" text="(All the data set and recieved should in hexadesimal)" textFill="#ff3d00" GridPane.columnIndex="0" GridPane.rowIndex="1" />
-                                    <GridPane id="GridPane" prefWidth="476.0" GridPane.columnIndex="0" GridPane.rowIndex="2">
-                                      <children>
-                                        <Label prefWidth="157.0" text="Send  Command from File:" GridPane.columnIndex="0" GridPane.rowIndex="0" />
-                                        <TextField id="mainFileTextField" fx:id="mainSendOpenTF" prefWidth="132.0" GridPane.columnIndex="2" GridPane.rowIndex="0" />
-                                        <Button id="mainFileOpen" fx:id="mainSendOpen" mnemonicParsing="false" onMouseClicked="#chooseFile" text="Open" GridPane.columnIndex="3" GridPane.rowIndex="0" />
-                                        <Label text="file:" GridPane.columnIndex="1" GridPane.rowIndex="0" />
-                                      </children>
-                                      <columnConstraints>
-                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
-                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
-                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
-                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
-                                      </columnConstraints>
-                                      <rowConstraints>
-                                        <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
-                                      </rowConstraints>
-                                    </GridPane>
-                                    <GridPane id="GridPane" prefWidth="486.0" GridPane.columnIndex="0" GridPane.rowIndex="3">
-                                      <children>
-                                        <Label prefWidth="124.0" text="Peried(milisecond):" GridPane.columnIndex="0" GridPane.rowIndex="0" />
-                                        <TextField id="mainPeriodTextField" fx:id="mainSendSendPeriedTF" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="0" />
-                                        <Button id="mainPeriedSend" fx:id="mainSendSendPeried" mnemonicParsing="false" onMouseClicked="#sendFromFile" text="Send" GridPane.columnIndex="2" GridPane.rowIndex="0" />
-                                      </children>
-                                      <columnConstraints>
-                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
-                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
-                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
-                                      </columnConstraints>
-                                      <rowConstraints>
-                                        <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
-                                      </rowConstraints>
-                                    </GridPane>
-                                  </children>
-                                  <columnConstraints>
-                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
-                                  </columnConstraints>
-                                  <rowConstraints>
-                                    <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
-                                    <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
-                                    <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
-                                    <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
-                                  </rowConstraints>
-                                </GridPane>
-                              </children>
-                              <columnConstraints>
-                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
-                              </columnConstraints>
-                              <rowConstraints>
-                                <RowConstraints maxHeight="34.0" minHeight="10.0" prefHeight="19.0" vgrow="SOMETIMES" />
-                                <RowConstraints maxHeight="111.0" minHeight="10.0" prefHeight="111.0" vgrow="SOMETIMES" />
-                              </rowConstraints>
-                            </GridPane>
-                          </children>
-                        </AnchorPane>
-                        <AnchorPane layoutX="2.0" layoutY="139.0" prefHeight="216.0" prefWidth="486.0">
-                          <children>
-                            <TextArea id="informationArea" fx:id="systemStateTextArea" editable="false" layoutX="0.0" layoutY="47.0" prefHeight="169.0" prefWidth="483.0" promptText="" style="" text="" wrapText="true" />
-                            <Text layoutX="203.0" layoutY="33.0" scaleX="1.8342783505154638" scaleY="2.1485522450692405" strokeType="OUTSIDE" strokeWidth="0.0" text="System States" />
-                          </children>
-                        </AnchorPane>
-                      </children>
-                    </AnchorPane>
                   </children>
                   <columnConstraints>
                     <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
                   </columnConstraints>
                   <rowConstraints>
                     <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
-                    <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                  </rowConstraints>
+                </GridPane>
+                <GridPane id="GridPane" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                  <children>
+                    <TreeView id="mainTreeView" fx:id="messageAndSignal" prefHeight="236.0" prefWidth="216.0" GridPane.columnIndex="0" GridPane.rowIndex="0">
+                      <contextMenu>
+                        <ContextMenu>
+                          <items>
+                            <MenuItem mnemonicParsing="false" onAction="#addMessage" text="Add Message" />
+                            <MenuItem mnemonicParsing="false" onAction="#addSignal" text="Add Signal" />
+                            <MenuItem mnemonicParsing="false" onAction="#addSignalToMessage" text="Add Signal To Message" />
+                            <MenuItem mnemonicParsing="false" onAction="#refresh" text="refresh" />
+                          </items>
+                        </ContextMenu>
+                      </contextMenu>
+                    </TreeView>
+                  </children>
+                  <columnConstraints>
+                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+                  </columnConstraints>
+                  <rowConstraints>
                     <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
                   </rowConstraints>
                 </GridPane>
-                <AnchorPane prefHeight="493.0" prefWidth="590.0" GridPane.columnIndex="1" GridPane.rowIndex="0">
+                <AnchorPane minHeight="246.0" prefHeight="246.0" prefWidth="208.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
                   <children>
-                    <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="490.0" layoutX="3.0" layoutY="3.0" opacity="0.16" stroke="BLACK" strokeType="INSIDE" width="567.0" />
-                    <GridPane id="GridPane" layoutX="10.0" layoutY="7.0">
-                      <children>
-                        <GridPane id="GridPane" GridPane.columnIndex="0" GridPane.rowIndex="3">
+                    <Text layoutX="14.0" layoutY="18.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Send Information" />
+                    <TextArea fx:id="informationArea" editable="false" layoutX="0.0" layoutY="27.0" prefHeight="193.0" prefWidth="216.0" promptText="" style="" text="" wrapText="true" />
+                    <Button id="mainStepdriver" fx:id="mainCommandsStepdriver" layoutX="7.0" layoutY="219.0" mnemonicParsing="false" text="Stepdriver" />
+                    <Button id="mainClear" fx:id="mainCommandsClear" layoutX="130.0" layoutY="219.0" mnemonicParsing="false" onMouseClicked="#clear" text="Clear" />
+                  </children>
+                </AnchorPane>
+              </children>
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="11.0" minWidth="10.0" prefWidth="11.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="226.0" minWidth="10.0" prefWidth="226.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="7.0" minWidth="0.0" prefWidth="0.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="10.0" minWidth="10.0" prefWidth="10.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+            </GridPane>
+            <SplitPane id="SplitPane" dividerPositions="0.7836990595611285" orientation="VERTICAL" visible="true">
+              <items>
+                <GridPane id="GridPane">
+                  <children>
+                    <SplitPane id="SplitPane" dividerPositions="0.4714022140221402" GridPane.columnIndex="0" GridPane.rowIndex="0">
+                      <items>
+                        <GridPane id="GridPane">
                           <children>
-                            <GridPane id="GridPane" prefWidth="555.0" GridPane.columnIndex="0" GridPane.rowIndex="0">
+                            <AnchorPane minWidth="476.0" prefHeight="129.0" prefWidth="476.0" GridPane.columnIndex="0" GridPane.rowIndex="0">
                               <children>
-                                <Text scaleX="1.0" scaleY="1.0498526207868768" strokeType="OUTSIDE" strokeWidth="0.0" text="Get Version from Device:" GridPane.columnIndex="0" GridPane.rowIndex="0" />
-                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Get Serial from Device:" GridPane.columnIndex="0" GridPane.rowIndex="1" />
-                                <Button id="mainGetVersion" fx:id="mainCommandsGetVersion" mnemonicParsing="false" onMouseClicked="#getVersion" prefWidth="92.0" text="Get Version" GridPane.columnIndex="1" GridPane.rowIndex="0" />
-                                <TextField id="mainGetVersionTextField" fx:id="mainCommandsGetVersionTF" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="0" />
-                                <Button id="mainReadSerial" fx:id="mainCommandsReadSerial" mnemonicParsing="false" onMouseClicked="#getSerial" prefWidth="84.0" text="Read Serial" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                                <TextField id="mainReadSerialTextField" fx:id="mainCommandsReadSerialTF" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="1" />
-                              </children>
-                              <columnConstraints>
-                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
-                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
-                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
-                              </columnConstraints>
-                              <rowConstraints>
-                                <RowConstraints maxHeight="20.0" minHeight="10.0" prefHeight="20.0" vgrow="SOMETIMES" />
-                                <RowConstraints maxHeight="20.0" minHeight="10.0" prefHeight="20.0" vgrow="SOMETIMES" />
-                              </rowConstraints>
-                            </GridPane>
-                            <GridPane id="GridPane" GridPane.columnIndex="0" GridPane.rowIndex="4">
-                              <children>
-                                <GridPane id="GridPane" prefWidth="555.0" GridPane.columnIndex="0" GridPane.rowIndex="0">
+                                <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="136.0" layoutX="-1.0" layoutY="1.0" opacity="0.28" smooth="true" stroke="BLACK" strokeType="INSIDE" visible="true" width="486.0" />
+                                <GridPane id="GridPane" prefHeight="137.0" prefWidth="476.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                   <children>
-                                    <GridPane id="GridPane" prefWidth="278.0" GridPane.columnIndex="1" GridPane.rowIndex="0">
+                                    <Label prefWidth="62.0" text="Setting" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                                    <GridPane id="GridPane" GridPane.columnIndex="0" GridPane.rowIndex="1">
                                       <children>
-                                        <GridPane id="GridPane" GridPane.columnIndex="0" GridPane.rowIndex="0">
+                                        <Label prefWidth="187.0" text="Set Can into Reset Mode:" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                                        <Label text="Set Can into Operationalt Mode:" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+                                        <Label prefWidth="187.0" text="Message Send On/Off Mode:" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+                                        <Label prefWidth="187.0" text="Setup bit rate:" GridPane.columnIndex="0" GridPane.rowIndex="3" />
+                                        <Label prefWidth="187.0" text="Set TimeStamp On/Off:" GridPane.columnIndex="0" GridPane.rowIndex="4" />
+                                        <Button fx:id="mainResetMode" mnemonicParsing="false" onMouseClicked="#resetMode" prefWidth="103.0" text="Reset Mode" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+                                        <GridPane id="GridPane" GridPane.columnIndex="1" GridPane.rowIndex="1">
                                           <children>
-                                            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="BTR0" GridPane.columnIndex="0" GridPane.rowIndex="0" />
-                                            <TextField id="mainBTR0TextField" fx:id="mainCommandsBTR0" prefWidth="62.0" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+                                            <Button fx:id="mainNormalMode" mnemonicParsing="false" onMouseClicked="#setNormalMode" prefWidth="103.0" text="Normal Mode" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+                                            <Button fx:id="mainSelfTest" mnemonicParsing="false" onMouseClicked="#setSelfTest" prefWidth="73.0" text="Self Test" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                                            <Button fx:id="mainListenOnly" mnemonicParsing="false" onMouseClicked="#setListenOnly" prefWidth="92.0" text="Listen Only" GridPane.columnIndex="2" GridPane.rowIndex="0" />
+                                          </children>
+                                          <columnConstraints>
+                                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+                                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+                                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+                                          </columnConstraints>
+                                          <rowConstraints>
+                                            <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                                          </rowConstraints>
+                                        </GridPane>
+                                        <GridPane id="GridPane" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                          <children>
+                                            <Button fx:id="mainBlokeOn" mnemonicParsing="false" onMouseClicked="#blockOn" text="Bloke On" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                                            <Button fx:id="mainBlokeOff" mnemonicParsing="false" onMouseClicked="#blockOff" text="Bloke Off" GridPane.columnIndex="1" GridPane.rowIndex="0" />
                                           </children>
                                           <columnConstraints>
                                             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
@@ -422,10 +222,21 @@
                                             <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
                                           </rowConstraints>
                                         </GridPane>
-                                        <GridPane id="GridPane" GridPane.columnIndex="1" GridPane.rowIndex="0">
+                                        <GridPane id="GridPane" GridPane.columnIndex="1" GridPane.rowIndex="3">
                                           <children>
-                                            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="BTR1" GridPane.columnIndex="0" GridPane.rowIndex="0" />
-                                            <TextField id="mainBTR1TextField" fx:id="mainCommandsBTR1" prefWidth="52.0" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+                                            <Button id="mainSetupBitRateOk" fx:id="mainListenOnlyOk" mnemonicParsing="false" onMouseClicked="#setBitRate" prefWidth="72.9998779296875" text="OK" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+                                            <MenuButton fx:id="mainSetupBitRate" mnemonicParsing="false" prefWidth="73.0" text="6" GridPane.columnIndex="0" GridPane.rowIndex="0">
+                                              <items>
+                                                <MenuItem mnemonicParsing="false" onAction="#bitRateChoose" text="1" />
+                                                <MenuItem mnemonicParsing="false" onAction="#bitRateChoose" text="2" />
+                                                <MenuItem mnemonicParsing="false" onAction="#bitRateChoose" text="3" />
+                                                <MenuItem mnemonicParsing="false" onAction="#bitRateChoose" text="4" />
+                                                <MenuItem mnemonicParsing="false" onAction="#bitRateChoose" text="5" />
+                                                <MenuItem mnemonicParsing="false" onAction="#bitRateChoose" text="6" />
+                                                <MenuItem mnemonicParsing="false" onAction="#bitRateChoose" text="7" />
+                                                <MenuItem mnemonicParsing="false" onAction="#bitRateChoose" text="8" />
+                                              </items>
+                                            </MenuButton>
                                           </children>
                                           <columnConstraints>
                                             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
@@ -435,54 +246,19 @@
                                             <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
                                           </rowConstraints>
                                         </GridPane>
-                                        <Button id="mainBTROK" fx:id="mainCommandsBTROK" mnemonicParsing="false" onMouseClicked="#setBTR" text="OK" GridPane.columnIndex="2" GridPane.rowIndex="0" />
-                                      </children>
-                                      <columnConstraints>
-                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
-                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
-                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
-                                      </columnConstraints>
-                                      <rowConstraints>
-                                        <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
-                                      </rowConstraints>
-                                    </GridPane>
-                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Setup BTR0/BTR1 Register:" GridPane.columnIndex="0" GridPane.rowIndex="0" />
-                                  </children>
-                                  <columnConstraints>
-                                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="217.0" minWidth="10.0" prefWidth="202.0" />
-                                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="353.0" minWidth="10.0" prefWidth="353.0" />
-                                  </columnConstraints>
-                                  <rowConstraints>
-                                    <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
-                                  </rowConstraints>
-                                </GridPane>
-                                <GridPane id="GridPane" prefWidth="555.0" GridPane.columnIndex="0" GridPane.rowIndex="2">
-                                  <children>
-                                    <GridPane id="GridPane" prefWidth="278.0" GridPane.columnIndex="1" GridPane.rowIndex="0">
-                                      <children>
-                                        <GridPane id="GridPane" GridPane.columnIndex="0" GridPane.rowIndex="0">
+                                        <GridPane id="GridPane" GridPane.columnIndex="1" GridPane.rowIndex="4">
                                           <children>
-                                            <Text scaleX="0.9428645505009939" scaleY="1.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ACR0" GridPane.columnIndex="0" GridPane.rowIndex="0" />
-                                            <TextField id="mainACR0TextField" fx:id="mainCommandsACR0" prefWidth="49.0" GridPane.columnIndex="1" GridPane.rowIndex="0" />
-                                            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="ACR1" GridPane.columnIndex="2" GridPane.rowIndex="0" />
-                                            <TextField id="mainACR1TextField" fx:id="mainCommandsACR1" prefWidth="52.0" GridPane.columnIndex="3" GridPane.rowIndex="0" />
-                                            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="ACR2" GridPane.columnIndex="0" GridPane.rowIndex="1" />
-                                            <TextField id="mainACR2TextField" fx:id="mainCommandsACR2" prefWidth="49.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                                            <Text scaleX="1.0" scaleY="0.9999934384212859" strokeType="OUTSIDE" strokeWidth="0.0" text="ACR3" GridPane.columnIndex="2" GridPane.rowIndex="1" />
-                                            <TextField id="mainACR3TextField" fx:id="mainCommandsACR3" prefWidth="49.0" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+                                            <Button fx:id="mainTimestampOn" mnemonicParsing="false" onMouseClicked="#timeStampOn" text="Timestamp On" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                                            <Button fx:id="mainTimestampOff" mnemonicParsing="false" onMouseClicked="#timeStampOff" text="Timestamp Off" GridPane.columnIndex="1" GridPane.rowIndex="0" />
                                           </children>
                                           <columnConstraints>
-                                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
-                                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
                                             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
                                             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
                                           </columnConstraints>
                                           <rowConstraints>
                                             <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
-                                            <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
                                           </rowConstraints>
                                         </GridPane>
-                                        <Button id="mainACROK" fx:id="mainCommandsACROK" mnemonicParsing="false" onMouseClicked="#setACR" text="OK" GridPane.columnIndex="1" GridPane.rowIndex="0" />
                                       </children>
                                       <columnConstraints>
                                         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
@@ -490,258 +266,111 @@
                                       </columnConstraints>
                                       <rowConstraints>
                                         <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                                        <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                                        <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                                        <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                                        <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
                                       </rowConstraints>
                                     </GridPane>
-                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Setup ACRn Register:" GridPane.columnIndex="0" GridPane.rowIndex="0" />
                                   </children>
                                   <columnConstraints>
-                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
                                     <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
                                   </columnConstraints>
                                   <rowConstraints>
                                     <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
                                   </rowConstraints>
                                 </GridPane>
-                                <GridPane id="GridPane" prefWidth="555.0" GridPane.columnIndex="0" GridPane.rowIndex="4">
+                              </children>
+                            </AnchorPane>
+                            <AnchorPane prefHeight="355.0" prefWidth="486.0" GridPane.columnIndex="0" GridPane.rowIndex="2">
+                              <children>
+                                <AnchorPane layoutX="0.0" layoutY="0.0" prefHeight="129.0" prefWidth="486.0">
                                   <children>
-                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Setup AMRn Register:" GridPane.columnIndex="0" GridPane.rowIndex="0" />
-                                    <GridPane id="GridPane" prefWidth="278.0" GridPane.columnIndex="1" GridPane.rowIndex="0">
+                                    <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="129.99998474121094" layoutX="0.0" layoutY="0.0" opacity="0.2" stroke="BLACK" strokeType="INSIDE" width="486.0" />
+                                    <GridPane id="GridPane" prefHeight="130.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                       <children>
-                                        <GridPane id="GridPane" GridPane.columnIndex="0" GridPane.rowIndex="0">
+                                        <Label prefWidth="38.0" text="Send" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                                        <GridPane id="GridPane" GridPane.columnIndex="0" GridPane.rowIndex="1">
                                           <children>
-                                            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="AMR0" GridPane.columnIndex="0" GridPane.rowIndex="0" />
-                                            <TextField id="mainAMR0TextField" fx:id="mainCommandsAMR0" prefWidth="49.0" GridPane.columnIndex="1" GridPane.rowIndex="0" />
-                                            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="AMR1" GridPane.columnIndex="2" GridPane.rowIndex="0" />
-                                            <TextField id="mainAMR1TextField" fx:id="mainCommandsAMR1" prefWidth="52.0" GridPane.columnIndex="3" GridPane.rowIndex="0" />
-                                            <TextField id="mainAMR2TextField" fx:id="mainCommandsAMR2" prefWidth="49.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                                            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="AMR3" GridPane.columnIndex="2" GridPane.rowIndex="1" />
-                                            <TextField id="mainAMR3TextField" fx:id="mainCommandsAMR3" prefWidth="52.0" GridPane.columnIndex="3" GridPane.rowIndex="1" />
-                                            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="AMR2" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+                                            <GridPane id="GridPane" prefWidth="476.0" GridPane.columnIndex="0" GridPane.rowIndex="0">
+                                              <children>
+                                                <Label text="Send Data and Command:" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                                                <TextField id="mainDataTextField" fx:id="mainSendSendDataTF" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+                                                <Button id="mainDataSend" fx:id="mainSendSendData" mnemonicParsing="false" onMouseClicked="#sendDataAndComand" text="Send" GridPane.columnIndex="2" GridPane.rowIndex="0" />
+                                              </children>
+                                              <columnConstraints>
+                                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+                                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+                                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+                                              </columnConstraints>
+                                              <rowConstraints>
+                                                <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                                              </rowConstraints>
+                                            </GridPane>
+                                            <Label prefWidth="476.0" text="(All the data set and recieved should in hexadesimal)" textFill="#ff3d00" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+                                            <GridPane id="GridPane" prefWidth="476.0" GridPane.columnIndex="0" GridPane.rowIndex="2">
+                                              <children>
+                                                <Label prefWidth="157.0" text="Send  Command from File:" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                                                <TextField id="mainFileTextField" fx:id="mainSendOpenTF" prefWidth="132.0" GridPane.columnIndex="2" GridPane.rowIndex="0" />
+                                                <Button id="mainFileOpen" fx:id="mainSendOpen" mnemonicParsing="false" onMouseClicked="#chooseFile" text="Open" GridPane.columnIndex="3" GridPane.rowIndex="0" />
+                                                <Label text="file:" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+                                              </children>
+                                              <columnConstraints>
+                                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+                                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+                                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+                                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+                                              </columnConstraints>
+                                              <rowConstraints>
+                                                <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                                              </rowConstraints>
+                                            </GridPane>
+                                            <GridPane id="GridPane" prefWidth="486.0" GridPane.columnIndex="0" GridPane.rowIndex="3">
+                                              <children>
+                                                <Label prefWidth="124.0" text="Peried(milisecond):" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                                                <TextField id="mainPeriodTextField" fx:id="mainSendSendPeriedTF" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+                                                <Button id="mainPeriedSend" fx:id="mainSendSendPeried" mnemonicParsing="false" onMouseClicked="#sendFromFile" text="Send" GridPane.columnIndex="2" GridPane.rowIndex="0" />
+                                              </children>
+                                              <columnConstraints>
+                                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+                                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+                                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+                                              </columnConstraints>
+                                              <rowConstraints>
+                                                <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                                              </rowConstraints>
+                                            </GridPane>
                                           </children>
                                           <columnConstraints>
-                                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
-                                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
-                                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
                                             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
                                           </columnConstraints>
                                           <rowConstraints>
                                             <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
                                             <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                                            <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                                            <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
                                           </rowConstraints>
                                         </GridPane>
-                                        <Button id="mainAMROK" fx:id="mainCommandsAMROK" mnemonicParsing="false" onMouseClicked="#setAMR" text="OK" GridPane.columnIndex="1" GridPane.rowIndex="0" />
                                       </children>
                                       <columnConstraints>
                                         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
-                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
                                       </columnConstraints>
                                       <rowConstraints>
-                                        <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                                        <RowConstraints maxHeight="34.0" minHeight="10.0" prefHeight="19.0" vgrow="SOMETIMES" />
+                                        <RowConstraints maxHeight="111.0" minHeight="10.0" prefHeight="111.0" vgrow="SOMETIMES" />
                                       </rowConstraints>
                                     </GridPane>
                                   </children>
-                                  <columnConstraints>
-                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
-                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
-                                  </columnConstraints>
-                                  <rowConstraints>
-                                    <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
-                                  </rowConstraints>
-                                </GridPane>
-                              </children>
-                              <columnConstraints>
-                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
-                              </columnConstraints>
-                              <rowConstraints>
-                                <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
-                                <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
-                                <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
-                                <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
-                                <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
-                              </rowConstraints>
-                            </GridPane>
-                            <GridPane id="GridPane" GridPane.columnIndex="0" GridPane.rowIndex="8">
-                              <children>
-                                <GridPane id="GridPane" GridPane.columnIndex="0" GridPane.rowIndex="0">
+                                </AnchorPane>
+                                <AnchorPane layoutX="2.0" layoutY="139.0" prefHeight="216.0" prefWidth="486.0">
                                   <children>
-                                    <GridPane id="GridPane" prefWidth="555.0" GridPane.columnIndex="0" GridPane.rowIndex="0">
-                                      <children>
-                                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Write Regiter" GridPane.columnIndex="0" GridPane.rowIndex="0" />
-                                        <TextField id="mainWriteRegisterTextField" fx:id="mainCommandsWriteRegister" prefWidth="52.0" GridPane.columnIndex="1" GridPane.rowIndex="0" />
-                                        <Text scaleX="1.1281941927000037" scaleY="1.0" strokeType="OUTSIDE" strokeWidth="0.0" text="with Data" GridPane.columnIndex="3" GridPane.rowIndex="0" />
-                                        <TextField id="mainWithDataTextField" fx:id="mainCommandsWithData" prefWidth="52.0" GridPane.columnIndex="4" GridPane.rowIndex="0" />
-                                        <Button id="mainACROK" mnemonicParsing="false" onMouseClicked="#setSJARegister" text="OK" GridPane.columnIndex="5" GridPane.rowIndex="0" />
-                                      </children>
-                                      <columnConstraints>
-                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
-                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
-                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
-                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
-                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
-                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
-                                      </columnConstraints>
-                                      <rowConstraints>
-                                        <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
-                                      </rowConstraints>
-                                    </GridPane>
-                                    <GridPane id="GridPane" prefWidth="555.0" GridPane.columnIndex="0" GridPane.rowIndex="1">
-                                      <children>
-                                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Read Register" GridPane.columnIndex="0" GridPane.rowIndex="0" />
-                                        <TextField id="mainReadRegisterTextField" fx:id="mainCommandsReadRegister" prefWidth="49.0" GridPane.columnIndex="1" GridPane.rowIndex="0" />
-                                        <Button id="mainReadRegisterOK" fx:id="mainCommandsReadRegisterOK" mnemonicParsing="false" onMouseClicked="#getSJARegisterValue" text="OK" GridPane.columnIndex="3" GridPane.rowIndex="0" />
-                                        <Text scaleX="1.0" scaleY="0.9999919902601564" strokeType="OUTSIDE" strokeWidth="0.0" text="Register Data is" GridPane.columnIndex="4" GridPane.rowIndex="0" />
-                                        <TextField id="mainRegisterDataTextField" fx:id="mainCommandsRegisterData" prefWidth="110.0" GridPane.columnIndex="5" GridPane.rowIndex="0" />
-                                      </children>
-                                      <columnConstraints>
-                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
-                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
-                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
-                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
-                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
-                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
-                                      </columnConstraints>
-                                      <rowConstraints>
-                                        <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
-                                      </rowConstraints>
-                                    </GridPane>
+                                    <TextArea id="informationArea" fx:id="systemStateTextArea" editable="false" layoutX="0.0" layoutY="47.0" prefHeight="169.0" prefWidth="483.0" promptText="" style="" text="" wrapText="true" />
+                                    <Text layoutX="203.0" layoutY="33.0" scaleX="1.8342783505154638" scaleY="2.1485522450692405" strokeType="OUTSIDE" strokeWidth="0.0" text="System States" />
                                   </children>
-                                  <columnConstraints>
-                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
-                                  </columnConstraints>
-                                  <rowConstraints>
-                                    <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
-                                    <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
-                                  </rowConstraints>
-                                </GridPane>
-                                <Text fill="RED" scaleX="0.9795510796444612" scaleY="1.0" strokeType="OUTSIDE" strokeWidth="0.0" text="(Read Regiter will clear the register contant,use it carefully)" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+                                </AnchorPane>
                               </children>
-                              <columnConstraints>
-                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
-                              </columnConstraints>
-                              <rowConstraints>
-                                <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
-                                <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
-                              </rowConstraints>
-                            </GridPane>
-                            <GridPane id="GridPane" GridPane.columnIndex="0" GridPane.rowIndex="12">
-                              <children>
-                                <GridPane id="GridPane" prefWidth="555.0" GridPane.columnIndex="0" GridPane.rowIndex="0">
-                                  <children>
-                                    <GridPane id="GridPane" GridPane.columnIndex="0" GridPane.rowIndex="0">
-                                      <children>
-                                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Flush the CAN-Controller and bring it to Reset Mode:" GridPane.columnIndex="0" GridPane.rowIndex="0" />
-                                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="(Controller's buffers and Variables are all innitiallized)" GridPane.columnIndex="0" GridPane.rowIndex="1">
-                                          <fill>
-                                            <Color blue="0.000" green="0.000" red="0.800" fx:id="x1" />
-                                          </fill>
-                                        </Text>
-                                      </children>
-                                      <columnConstraints>
-                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
-                                      </columnConstraints>
-                                      <rowConstraints>
-                                        <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
-                                        <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
-                                      </rowConstraints>
-                                    </GridPane>
-                                    <Button id="mainFlushOK" fx:id="mainCommandsFlushOK" mnemonicParsing="false" onMouseClicked="#flush" text="OK" GridPane.columnIndex="1" GridPane.rowIndex="0" />
-                                  </children>
-                                  <columnConstraints>
-                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
-                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
-                                  </columnConstraints>
-                                  <rowConstraints>
-                                    <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
-                                    <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
-                                  </rowConstraints>
-                                </GridPane>
-                                <GridPane id="GridPane" prefWidth="555.0" GridPane.columnIndex="0" GridPane.rowIndex="1">
-                                  <children>
-                                    <Text scaleX="0.9956352886881559" scaleY="1.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Read error flags SB,ALC,ECR，RIERR，TXERR Registers" GridPane.columnIndex="0" GridPane.rowIndex="0" />
-                                    <Button id="mainReadErrorOK" fx:id="mainCommandsReadOK" mnemonicParsing="false" onMouseClicked="#getErrorFlag" text="OK" GridPane.columnIndex="1" GridPane.rowIndex="0" />
-                                  </children>
-                                  <columnConstraints>
-                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
-                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
-                                  </columnConstraints>
-                                  <rowConstraints>
-                                    <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
-                                  </rowConstraints>
-                                </GridPane>
-                              </children>
-                              <columnConstraints>
-                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
-                              </columnConstraints>
-                              <rowConstraints>
-                                <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
-                                <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
-                              </rowConstraints>
-                            </GridPane>
-                            <GridPane id="GridPane" GridPane.columnIndex="0" GridPane.rowIndex="16">
-                              <children>
-                                <GridPane id="GridPane" GridPane.columnIndex="0" GridPane.rowIndex="0">
-                                  <children>
-                                    <GridPane id="GridPane" prefWidth="455.0" GridPane.columnIndex="0" GridPane.rowIndex="0">
-                                      <children>
-                                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="SR" GridPane.columnIndex="2" GridPane.rowIndex="0" />
-                                        <Text scaleX="1.0" scaleY="0.9999919902601564" strokeType="OUTSIDE" strokeWidth="0.0" text="ALC" GridPane.columnIndex="4" GridPane.rowIndex="0" />
-                                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="ERR-Flags" textAlignment="RIGHT" GridPane.columnIndex="0" GridPane.rowIndex="0" />
-                                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="ECR" GridPane.columnIndex="6" GridPane.rowIndex="0" />
-                                        <TextField id="ERRTextField" fx:id="mainCommandsERRFlags" prefWidth="44.71875" GridPane.columnIndex="1" GridPane.rowIndex="0" />
-                                        <TextField id="SBTextField" fx:id="mainCommandsSB" prefWidth="44.9998779296875" GridPane.columnIndex="3" GridPane.rowIndex="0" />
-                                        <TextField id="ALCTextField" fx:id="mainCommandsALC" prefWidth="38.0" GridPane.columnIndex="5" GridPane.rowIndex="0" />
-                                        <TextField id="ECRTextField" fx:id="mainCommandsECR" prefWidth="52.0" GridPane.columnIndex="7" GridPane.rowIndex="0" />
-                                      </children>
-                                      <columnConstraints>
-                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
-                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
-                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
-                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
-                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
-                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
-                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
-                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
-                                      </columnConstraints>
-                                      <rowConstraints>
-                                        <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
-                                      </rowConstraints>
-                                    </GridPane>
-                                    <GridPane id="GridPane" prefWidth="292.0" GridPane.columnIndex="0" GridPane.rowIndex="1">
-                                      <children>
-                                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="RIERR" GridPane.columnIndex="0" GridPane.rowIndex="0" />
-                                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="TXERRR" GridPane.columnIndex="2" GridPane.rowIndex="0" />
-                                        <TextField id="RIERRTextField" fx:id="mainCommandsRiERR" prefWidth="44.71875" GridPane.columnIndex="1" GridPane.rowIndex="0" />
-                                        <TextField id="TXERRRTextField" fx:id="mainCommandsTXERRR" prefWidth="52.0" GridPane.columnIndex="3" GridPane.rowIndex="0" />
-                                      </children>
-                                      <columnConstraints>
-                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
-                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
-                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
-                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
-                                      </columnConstraints>
-                                      <rowConstraints>
-                                        <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
-                                      </rowConstraints>
-                                    </GridPane>
-                                  </children>
-                                  <columnConstraints>
-                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
-                                  </columnConstraints>
-                                  <rowConstraints>
-                                    <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
-                                    <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
-                                  </rowConstraints>
-                                </GridPane>
-                                <Text fill="$x1" scaleX="1.0073730183764364" scaleY="0.9999919902601564" strokeType="OUTSIDE" strokeWidth="0.0" text="(All the Data set and  recieved should in hexacidecimal)" GridPane.columnIndex="0" GridPane.rowIndex="1" />
-                              </children>
-                              <columnConstraints>
-                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
-                              </columnConstraints>
-                              <rowConstraints>
-                                <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
-                                <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
-                              </rowConstraints>
-                            </GridPane>
+                            </AnchorPane>
                           </children>
                           <columnConstraints>
                             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
@@ -750,65 +379,451 @@
                             <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
                             <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
                             <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
-                            <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
-                            <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
-                            <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
-                            <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
-                            <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
-                            <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
-                            <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
-                            <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
-                            <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
-                            <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
-                            <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
-                            <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
-                            <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
-                            <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
                           </rowConstraints>
                         </GridPane>
-                        <Label text="Commands" GridPane.columnIndex="0" GridPane.rowIndex="0" />
-                      </children>
-                      <columnConstraints>
-                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
-                      </columnConstraints>
-                      <rowConstraints>
-                        <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
-                        <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
-                        <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
-                        <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
-                      </rowConstraints>
-                    </GridPane>
+                        <AnchorPane prefHeight="493.0" prefWidth="590.0">
+                          <children>
+                            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="490.0" layoutX="3.0" layoutY="3.0" opacity="0.16" stroke="BLACK" strokeType="INSIDE" width="567.0" />
+                            <GridPane id="GridPane" layoutX="10.0" layoutY="7.0">
+                              <children>
+                                <GridPane id="GridPane" GridPane.columnIndex="0" GridPane.rowIndex="3">
+                                  <children>
+                                    <GridPane id="GridPane" prefWidth="555.0" GridPane.columnIndex="0" GridPane.rowIndex="0">
+                                      <children>
+                                        <Text scaleX="1.0" scaleY="1.0498526207868768" strokeType="OUTSIDE" strokeWidth="0.0" text="Get Version from Device:" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Get Serial from Device:" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+                                        <Button id="mainGetVersion" fx:id="mainCommandsGetVersion" mnemonicParsing="false" onMouseClicked="#getVersion" prefWidth="92.0" text="Get Version" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+                                        <TextField id="mainGetVersionTextField" fx:id="mainCommandsGetVersionTF" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="0" />
+                                        <Button id="mainReadSerial" fx:id="mainCommandsReadSerial" mnemonicParsing="false" onMouseClicked="#getSerial" prefWidth="84.0" text="Read Serial" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                        <TextField id="mainReadSerialTextField" fx:id="mainCommandsReadSerialTF" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                                      </children>
+                                      <columnConstraints>
+                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+                                      </columnConstraints>
+                                      <rowConstraints>
+                                        <RowConstraints maxHeight="20.0" minHeight="10.0" prefHeight="20.0" vgrow="SOMETIMES" />
+                                        <RowConstraints maxHeight="20.0" minHeight="10.0" prefHeight="20.0" vgrow="SOMETIMES" />
+                                      </rowConstraints>
+                                    </GridPane>
+                                    <GridPane id="GridPane" GridPane.columnIndex="0" GridPane.rowIndex="4">
+                                      <children>
+                                        <GridPane id="GridPane" prefWidth="555.0" GridPane.columnIndex="0" GridPane.rowIndex="0">
+                                          <children>
+                                            <GridPane id="GridPane" prefWidth="278.0" GridPane.columnIndex="1" GridPane.rowIndex="0">
+                                              <children>
+                                                <GridPane id="GridPane" GridPane.columnIndex="0" GridPane.rowIndex="0">
+                                                  <children>
+                                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="BTR0" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                                                    <TextField id="mainBTR0TextField" fx:id="mainCommandsBTR0" prefWidth="62.0" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+                                                  </children>
+                                                  <columnConstraints>
+                                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+                                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+                                                  </columnConstraints>
+                                                  <rowConstraints>
+                                                    <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                                                  </rowConstraints>
+                                                </GridPane>
+                                                <GridPane id="GridPane" GridPane.columnIndex="1" GridPane.rowIndex="0">
+                                                  <children>
+                                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="BTR1" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                                                    <TextField id="mainBTR1TextField" fx:id="mainCommandsBTR1" prefWidth="52.0" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+                                                  </children>
+                                                  <columnConstraints>
+                                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+                                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+                                                  </columnConstraints>
+                                                  <rowConstraints>
+                                                    <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                                                  </rowConstraints>
+                                                </GridPane>
+                                                <Button id="mainBTROK" fx:id="mainCommandsBTROK" mnemonicParsing="false" onMouseClicked="#setBTR" text="OK" GridPane.columnIndex="2" GridPane.rowIndex="0" />
+                                              </children>
+                                              <columnConstraints>
+                                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+                                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+                                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+                                              </columnConstraints>
+                                              <rowConstraints>
+                                                <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                                              </rowConstraints>
+                                            </GridPane>
+                                            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Setup BTR0/BTR1 Register:" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                                          </children>
+                                          <columnConstraints>
+                                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="217.0" minWidth="10.0" prefWidth="202.0" />
+                                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="353.0" minWidth="10.0" prefWidth="353.0" />
+                                          </columnConstraints>
+                                          <rowConstraints>
+                                            <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                                          </rowConstraints>
+                                        </GridPane>
+                                        <GridPane id="GridPane" prefWidth="555.0" GridPane.columnIndex="0" GridPane.rowIndex="2">
+                                          <children>
+                                            <GridPane id="GridPane" prefWidth="278.0" GridPane.columnIndex="1" GridPane.rowIndex="0">
+                                              <children>
+                                                <GridPane id="GridPane" GridPane.columnIndex="0" GridPane.rowIndex="0">
+                                                  <children>
+                                                    <Text scaleX="0.9428645505009939" scaleY="1.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ACR0" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                                                    <TextField id="mainACR0TextField" fx:id="mainCommandsACR0" prefWidth="49.0" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+                                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="ACR1" GridPane.columnIndex="2" GridPane.rowIndex="0" />
+                                                    <TextField id="mainACR1TextField" fx:id="mainCommandsACR1" prefWidth="52.0" GridPane.columnIndex="3" GridPane.rowIndex="0" />
+                                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="ACR2" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+                                                    <TextField id="mainACR2TextField" fx:id="mainCommandsACR2" prefWidth="49.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                                    <Text scaleX="1.0" scaleY="0.9999934384212859" strokeType="OUTSIDE" strokeWidth="0.0" text="ACR3" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                                                    <TextField id="mainACR3TextField" fx:id="mainCommandsACR3" prefWidth="49.0" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+                                                  </children>
+                                                  <columnConstraints>
+                                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+                                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+                                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+                                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+                                                  </columnConstraints>
+                                                  <rowConstraints>
+                                                    <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                                                    <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                                                  </rowConstraints>
+                                                </GridPane>
+                                                <Button id="mainACROK" fx:id="mainCommandsACROK" mnemonicParsing="false" onMouseClicked="#setACR" text="OK" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+                                              </children>
+                                              <columnConstraints>
+                                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+                                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+                                              </columnConstraints>
+                                              <rowConstraints>
+                                                <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                                              </rowConstraints>
+                                            </GridPane>
+                                            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Setup ACRn Register:" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                                          </children>
+                                          <columnConstraints>
+                                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+                                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+                                          </columnConstraints>
+                                          <rowConstraints>
+                                            <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                                          </rowConstraints>
+                                        </GridPane>
+                                        <GridPane id="GridPane" prefWidth="555.0" GridPane.columnIndex="0" GridPane.rowIndex="4">
+                                          <children>
+                                            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Setup AMRn Register:" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                                            <GridPane id="GridPane" prefWidth="278.0" GridPane.columnIndex="1" GridPane.rowIndex="0">
+                                              <children>
+                                                <GridPane id="GridPane" GridPane.columnIndex="0" GridPane.rowIndex="0">
+                                                  <children>
+                                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="AMR0" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                                                    <TextField id="mainAMR0TextField" fx:id="mainCommandsAMR0" prefWidth="49.0" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+                                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="AMR1" GridPane.columnIndex="2" GridPane.rowIndex="0" />
+                                                    <TextField id="mainAMR1TextField" fx:id="mainCommandsAMR1" prefWidth="52.0" GridPane.columnIndex="3" GridPane.rowIndex="0" />
+                                                    <TextField id="mainAMR2TextField" fx:id="mainCommandsAMR2" prefWidth="49.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="AMR3" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                                                    <TextField id="mainAMR3TextField" fx:id="mainCommandsAMR3" prefWidth="52.0" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+                                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="AMR2" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+                                                  </children>
+                                                  <columnConstraints>
+                                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+                                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+                                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+                                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+                                                  </columnConstraints>
+                                                  <rowConstraints>
+                                                    <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                                                    <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                                                  </rowConstraints>
+                                                </GridPane>
+                                                <Button id="mainAMROK" fx:id="mainCommandsAMROK" mnemonicParsing="false" onMouseClicked="#setAMR" text="OK" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+                                              </children>
+                                              <columnConstraints>
+                                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+                                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+                                              </columnConstraints>
+                                              <rowConstraints>
+                                                <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                                              </rowConstraints>
+                                            </GridPane>
+                                          </children>
+                                          <columnConstraints>
+                                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+                                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+                                          </columnConstraints>
+                                          <rowConstraints>
+                                            <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                                          </rowConstraints>
+                                        </GridPane>
+                                      </children>
+                                      <columnConstraints>
+                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+                                      </columnConstraints>
+                                      <rowConstraints>
+                                        <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                                        <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                                        <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                                        <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                                        <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                                      </rowConstraints>
+                                    </GridPane>
+                                    <GridPane id="GridPane" GridPane.columnIndex="0" GridPane.rowIndex="8">
+                                      <children>
+                                        <GridPane id="GridPane" GridPane.columnIndex="0" GridPane.rowIndex="0">
+                                          <children>
+                                            <GridPane id="GridPane" prefWidth="555.0" GridPane.columnIndex="0" GridPane.rowIndex="0">
+                                              <children>
+                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Write Regiter" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                                                <TextField id="mainWriteRegisterTextField" fx:id="mainCommandsWriteRegister" prefWidth="52.0" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+                                                <Text scaleX="1.1281941927000037" scaleY="1.0" strokeType="OUTSIDE" strokeWidth="0.0" text="with Data" GridPane.columnIndex="3" GridPane.rowIndex="0" />
+                                                <TextField id="mainWithDataTextField" fx:id="mainCommandsWithData" prefWidth="52.0" GridPane.columnIndex="4" GridPane.rowIndex="0" />
+                                                <Button id="mainACROK" mnemonicParsing="false" onMouseClicked="#setSJARegister" text="OK" GridPane.columnIndex="5" GridPane.rowIndex="0" />
+                                              </children>
+                                              <columnConstraints>
+                                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+                                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+                                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+                                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+                                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+                                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+                                              </columnConstraints>
+                                              <rowConstraints>
+                                                <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                                              </rowConstraints>
+                                            </GridPane>
+                                            <GridPane id="GridPane" prefWidth="555.0" GridPane.columnIndex="0" GridPane.rowIndex="1">
+                                              <children>
+                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Read Register" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                                                <TextField id="mainReadRegisterTextField" fx:id="mainCommandsReadRegister" prefWidth="49.0" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+                                                <Button id="mainReadRegisterOK" fx:id="mainCommandsReadRegisterOK" mnemonicParsing="false" onMouseClicked="#getSJARegisterValue" text="OK" GridPane.columnIndex="3" GridPane.rowIndex="0" />
+                                                <Text scaleX="1.0" scaleY="0.9999919902601564" strokeType="OUTSIDE" strokeWidth="0.0" text="Register Data is" GridPane.columnIndex="4" GridPane.rowIndex="0" />
+                                                <TextField id="mainRegisterDataTextField" fx:id="mainCommandsRegisterData" prefWidth="110.0" GridPane.columnIndex="5" GridPane.rowIndex="0" />
+                                              </children>
+                                              <columnConstraints>
+                                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+                                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+                                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+                                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+                                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+                                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+                                              </columnConstraints>
+                                              <rowConstraints>
+                                                <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                                              </rowConstraints>
+                                            </GridPane>
+                                          </children>
+                                          <columnConstraints>
+                                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+                                          </columnConstraints>
+                                          <rowConstraints>
+                                            <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                                            <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                                          </rowConstraints>
+                                        </GridPane>
+                                        <Text fill="RED" scaleX="0.9795510796444612" scaleY="1.0" strokeType="OUTSIDE" strokeWidth="0.0" text="(Read Regiter will clear the register contant,use it carefully)" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+                                      </children>
+                                      <columnConstraints>
+                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+                                      </columnConstraints>
+                                      <rowConstraints>
+                                        <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                                        <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                                      </rowConstraints>
+                                    </GridPane>
+                                    <GridPane id="GridPane" GridPane.columnIndex="0" GridPane.rowIndex="12">
+                                      <children>
+                                        <GridPane id="GridPane" prefWidth="555.0" GridPane.columnIndex="0" GridPane.rowIndex="0">
+                                          <children>
+                                            <GridPane id="GridPane" GridPane.columnIndex="0" GridPane.rowIndex="0">
+                                              <children>
+                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Flush the CAN-Controller and bring it to Reset Mode:" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="(Controller's buffers and Variables are all innitiallized)" GridPane.columnIndex="0" GridPane.rowIndex="1">
+                                                  <fill>
+                                                    <Color blue="0.000" green="0.000" red="0.800" fx:id="x1" />
+                                                  </fill>
+                                                </Text>
+                                              </children>
+                                              <columnConstraints>
+                                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+                                              </columnConstraints>
+                                              <rowConstraints>
+                                                <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                                              </rowConstraints>
+                                            </GridPane>
+                                            <Button id="mainFlushOK" fx:id="mainCommandsFlushOK" mnemonicParsing="false" onMouseClicked="#flush" text="OK" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+                                          </children>
+                                          <columnConstraints>
+                                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+                                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+                                          </columnConstraints>
+                                          <rowConstraints>
+                                            <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                                            <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                                          </rowConstraints>
+                                        </GridPane>
+                                        <GridPane id="GridPane" prefWidth="555.0" GridPane.columnIndex="0" GridPane.rowIndex="1">
+                                          <children>
+                                            <Text scaleX="0.9956352886881559" scaleY="1.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Read error flags SB,ALC,ECR，RIERR，TXERR Registers" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                                            <Button id="mainReadErrorOK" fx:id="mainCommandsReadOK" mnemonicParsing="false" onMouseClicked="#getErrorFlag" text="OK" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+                                          </children>
+                                          <columnConstraints>
+                                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+                                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+                                          </columnConstraints>
+                                          <rowConstraints>
+                                            <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                                          </rowConstraints>
+                                        </GridPane>
+                                      </children>
+                                      <columnConstraints>
+                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+                                      </columnConstraints>
+                                      <rowConstraints>
+                                        <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                                        <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                                      </rowConstraints>
+                                    </GridPane>
+                                    <GridPane id="GridPane" GridPane.columnIndex="0" GridPane.rowIndex="16">
+                                      <children>
+                                        <GridPane id="GridPane" GridPane.columnIndex="0" GridPane.rowIndex="0">
+                                          <children>
+                                            <GridPane id="GridPane" prefWidth="455.0" GridPane.columnIndex="0" GridPane.rowIndex="0">
+                                              <children>
+                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="SR" GridPane.columnIndex="2" GridPane.rowIndex="0" />
+                                                <Text scaleX="1.0" scaleY="0.9999919902601564" strokeType="OUTSIDE" strokeWidth="0.0" text="ALC" GridPane.columnIndex="4" GridPane.rowIndex="0" />
+                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="ERR-Flags" textAlignment="RIGHT" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="ECR" GridPane.columnIndex="6" GridPane.rowIndex="0" />
+                                                <TextField id="ERRTextField" fx:id="mainCommandsERRFlags" prefWidth="44.71875" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+                                                <TextField id="SBTextField" fx:id="mainCommandsSB" prefWidth="44.9998779296875" GridPane.columnIndex="3" GridPane.rowIndex="0" />
+                                                <TextField id="ALCTextField" fx:id="mainCommandsALC" prefWidth="38.0" GridPane.columnIndex="5" GridPane.rowIndex="0" />
+                                                <TextField id="ECRTextField" fx:id="mainCommandsECR" prefWidth="52.0" GridPane.columnIndex="7" GridPane.rowIndex="0" />
+                                              </children>
+                                              <columnConstraints>
+                                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+                                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+                                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+                                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+                                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+                                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+                                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+                                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+                                              </columnConstraints>
+                                              <rowConstraints>
+                                                <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                                              </rowConstraints>
+                                            </GridPane>
+                                            <GridPane id="GridPane" prefWidth="292.0" GridPane.columnIndex="0" GridPane.rowIndex="1">
+                                              <children>
+                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="RIERR" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="TXERRR" GridPane.columnIndex="2" GridPane.rowIndex="0" />
+                                                <TextField id="RIERRTextField" fx:id="mainCommandsRiERR" prefWidth="44.71875" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+                                                <TextField id="TXERRRTextField" fx:id="mainCommandsTXERRR" prefWidth="52.0" GridPane.columnIndex="3" GridPane.rowIndex="0" />
+                                              </children>
+                                              <columnConstraints>
+                                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+                                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+                                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+                                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+                                              </columnConstraints>
+                                              <rowConstraints>
+                                                <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                                              </rowConstraints>
+                                            </GridPane>
+                                          </children>
+                                          <columnConstraints>
+                                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+                                          </columnConstraints>
+                                          <rowConstraints>
+                                            <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                                            <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                                          </rowConstraints>
+                                        </GridPane>
+                                        <Text fill="$x1" scaleX="1.0073730183764364" scaleY="0.9999919902601564" strokeType="OUTSIDE" strokeWidth="0.0" text="(All the Data set and  recieved should in hexacidecimal)" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+                                      </children>
+                                      <columnConstraints>
+                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+                                      </columnConstraints>
+                                      <rowConstraints>
+                                        <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                                        <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                                      </rowConstraints>
+                                    </GridPane>
+                                  </children>
+                                  <columnConstraints>
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+                                  </columnConstraints>
+                                  <rowConstraints>
+                                    <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                                  </rowConstraints>
+                                </GridPane>
+                                <Label text="Commands" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                              </children>
+                              <columnConstraints>
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+                              </columnConstraints>
+                              <rowConstraints>
+                                <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                                <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                                <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                                <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                              </rowConstraints>
+                            </GridPane>
+                          </children>
+                        </AnchorPane>
+                      </items>
+                    </SplitPane>
+                  </children>
+                  <columnConstraints>
+                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+                  </columnConstraints>
+                  <rowConstraints>
+                    <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                  </rowConstraints>
+                </GridPane>
+                <AnchorPane prefHeight="130.0" prefWidth="1086.0">
+                  <children>
+                    <TableView fx:id="msgTable" prefHeight="130.0" prefWidth="1086.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                      <columns>
+                        <TableColumn prefWidth="75.0" text="index" fx:id="indexColumn" />
+                        <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="107.0" text="MessageID" fx:id="idColumn" />
+                        <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="128.0" text="MessageName" fx:id="nameColumn" />
+                        <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="101.0" text="MesageLength" fx:id="lengthColumn" />
+                        <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="111.0" text="Data" fx:id="dataColumn" />
+                        <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="175.0" text="RecievedString" fx:id="receiveStringColumn" />
+                        <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="137.0" text="TransMode" fx:id="trasmodeColumn" />
+                        <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="111.0" text="TimeStamp" fx:id="timeStamp" />
+                        <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="138.0" text="Time" fx:id="timeColumn" />
+                      </columns>
+                    </TableView>
                   </children>
                 </AnchorPane>
-              </children>
-              <columnConstraints>
-                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
-                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
-              </columnConstraints>
-              <rowConstraints>
-                <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
-              </rowConstraints>
-            </GridPane>
-            <AnchorPane prefHeight="130.0" prefWidth="1086.0">
-              <children>
-                <TableView fx:id="msgTable" prefHeight="130.0" prefWidth="1086.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                  <columns>
-                    <TableColumn prefWidth="75.0" text="index" fx:id="indexColumn" />
-                    <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="107.0" text="MessageID" fx:id="idColumn" />
-                    <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="128.0" text="MessageName" fx:id="nameColumn" />
-                    <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="101.0" text="MesageLength" fx:id="lengthColumn" />
-                    <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="111.0" text="Data" fx:id="dataColumn" />
-                    <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="175.0" text="RecievedString" fx:id="receiveStringColumn" />
-                    <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="137.0" text="TransMode" fx:id="trasmodeColumn" />
-                    <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="111.0" text="TimeStamp" fx:id="timeStamp" />
-                    <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="138.0" text="Time" fx:id="timeColumn" />
-                  </columns>
-                </TableView>
-              </children>
-            </AnchorPane>
+              </items>
+            </SplitPane>
           </items>
         </SplitPane>
-      </items>
-    </SplitPane>
+      </children>
+      <columnConstraints>
+        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+      </columnConstraints>
+      <rowConstraints>
+        <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+        <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+      </rowConstraints>
+    </GridPane>
   </children>
 </AnchorPane>
